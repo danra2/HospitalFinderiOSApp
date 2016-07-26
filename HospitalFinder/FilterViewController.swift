@@ -11,9 +11,28 @@ import UIKit
 
 class FilterViewController: UIViewController {
     
+    @IBOutlet weak var consultingFeeSlider: UISlider!
+    
+
+    @IBOutlet weak var distanceSlider: UISlider!
+    
+    @IBOutlet weak var ratingSlider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+    }
+    
+   
+    @IBAction func distanceSliderChanged(sender: UISlider) {
+        let tbvc = self.tabBarController as! MainTabController
+        tbvc.filterModel.distance = distanceSlider.value
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+       
+        
     }
     
     override func didReceiveMemoryWarning() {

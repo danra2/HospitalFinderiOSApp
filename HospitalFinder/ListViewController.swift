@@ -13,11 +13,20 @@ class ListViewController: UITableViewController {
     
     var hospitals = []
     var toPass: String?
-    
+    var filterModel = FilterModel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print(toPass!)
         getAllHospitals()
+    }
+    
+
+    
+    override func viewWillAppear(animated: Bool) {
+        let tbvc = self.tabBarController as! MainTabController
+        filterModel = tbvc.filterModel
+        print(filterModel.distance)
     }
     
     
