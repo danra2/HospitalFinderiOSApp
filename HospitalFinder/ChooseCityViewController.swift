@@ -10,14 +10,48 @@ import UIKit
 
 class ChooseCityViewController: UIViewController {
     
+    @IBOutlet weak var bellevueButton: UIButton!
+    @IBOutlet weak var seattleButton: UIButton!
+    
+    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var goButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        goButton.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        let tabBarC : UITabBarController = segue.destinationViewController as! UITabBarController
+        let desView: ListViewController = tabBarC.viewControllers?.first as! ListViewController
+
+        if (segue.identifier == "toTabBar") {
+            if goButton.tag == 1 {
+                print("> Bellevue")
+                desView.toPass = bellevueButton.currentTitle
+            } else if goButton.tag == 2 {
+                print("> Seattle")
+                desView.toPass = seattleButton.currentTitle
+            }
+        }
+    }
+    @IBAction func bellevueButtonPressed(sender: UIButton) {
+        cityNameLabel.text = "Bellevue Selected"
+        goButton.tag = 1
+        print(goButton.tag)
+        goButton.hidden = false
+    }
+    @IBAction func seattleButtonPressed(sender: UIButton) {
+        cityNameLabel.text = "Seattle Selected"
+        goButton.tag = 2
+        print(goButton.tag)
+        goButton.hidden = false
     }
     
     

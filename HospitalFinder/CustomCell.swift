@@ -9,9 +9,9 @@
 import UIKit
 class CustomCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var locationLabel: UILabel!
-    
     @IBOutlet weak var hospitialImageView: UIImageView!
-
+    @IBOutlet weak var phoneButtonLabel: UIButton!
+    @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var ratingLabel: UILabel!
 }

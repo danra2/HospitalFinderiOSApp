@@ -2,7 +2,7 @@
 //  Hospital+CoreDataProperties.swift
 //  HospitalFinder
 //
-//  Created by Daniel Ra on 7/25/16.
+//  Created by Yung Kim on 7/25/16.
 //  Copyright © 2016 Daniel Ra. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -15,7 +15,6 @@ import CoreData
 extension Hospital {
 
     @NSManaged var name: String?
-    @NSManaged var location: String?
-    @NSManaged var imgUrl: String?
+    @NSManaged var id: NSNumber?
 
 }

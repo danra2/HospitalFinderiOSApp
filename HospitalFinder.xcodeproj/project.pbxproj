@@ -324,6 +324,7 @@
 				214C6EEE1D46B652007EC6DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
