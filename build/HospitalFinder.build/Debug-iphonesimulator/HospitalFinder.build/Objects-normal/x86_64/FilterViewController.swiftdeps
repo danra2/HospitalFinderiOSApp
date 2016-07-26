@@ -1,0 +1,307 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "FilterViewController"
+provides-nominal:
+- "C14HospitalFinder20FilterViewController"
+provides-member:
+- ["C14HospitalFinder20FilterViewController", ""]
+provides-dynamic-lookup:
+- "consultingFeeSlider"
+- "viewDidLoad"
+- "didReceiveMemoryWarning"
+- "distanceSlider"
+- "distanceSliderChanged"
+- "viewWillDisappear"
+- "ratingSlider"
+depends-top-level:
+- "UISlider"
+- "Bool"
+- "FilterViewController"
+- !private "MainTabController"
+- "UIViewController"
+depends-member:
+- ["Ps9AnyObject", "consultingFeeSlider"]
+- ["Ps9AnyObject", "didReceiveMemoryWarning"]
+- !private ["Ps9AnyObject", "distance"]
+- ["Ps9AnyObject", "distanceSlider"]
+- ["Ps9AnyObject", "distanceSliderChanged"]
+- !private ["Ps9AnyObject", "filterModel"]
+- ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "ratingSlider"]
+- !private ["Ps9AnyObject", "tabBarController"]
+- !private ["Ps9AnyObject", "value"]
+- ["Ps9AnyObject", "viewDidLoad"]
+- ["Ps9AnyObject", "viewWillDisappear"]
+- ["Ps9AnyObject", ""]
+- ["Ps11CVarArgType", "consultingFeeSlider"]
+- ["Ps11CVarArgType", "didReceiveMemoryWarning"]
+- !private ["Ps11CVarArgType", "distance"]
+- ["Ps11CVarArgType", "distanceSlider"]
+- ["Ps11CVarArgType", "distanceSliderChanged"]
+- !private ["Ps11CVarArgType", "filterModel"]
+- ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "ratingSlider"]
+- !private ["Ps11CVarArgType", "tabBarController"]
+- !private ["Ps11CVarArgType", "value"]
+- ["Ps11CVarArgType", "viewDidLoad"]
+- ["Ps11CVarArgType", "viewWillDisappear"]
+- ["Ps11CVarArgType", ""]
+- ["Ps28CustomDebugStringConvertible", "consultingFeeSlider"]
+- ["Ps28CustomDebugStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps28CustomDebugStringConvertible", "distance"]
+- ["Ps28CustomDebugStringConvertible", "distanceSlider"]
+- ["Ps28CustomDebugStringConvertible", "distanceSliderChanged"]
+- !private ["Ps28CustomDebugStringConvertible", "filterModel"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "ratingSlider"]
+- !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
+- !private ["Ps28CustomDebugStringConvertible", "value"]
+- ["Ps28CustomDebugStringConvertible", "viewDidLoad"]
+- ["Ps28CustomDebugStringConvertible", "viewWillDisappear"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "consultingFeeSlider"]
+- ["Ps23CustomStringConvertible", "didReceiveMemoryWarning"]
+- !private ["Ps23CustomStringConvertible", "distance"]
+- ["Ps23CustomStringConvertible", "distanceSlider"]
+- ["Ps23CustomStringConvertible", "distanceSliderChanged"]
+- !private ["Ps23CustomStringConvertible", "filterModel"]
+- ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "ratingSlider"]
+- !private ["Ps23CustomStringConvertible", "tabBarController"]
+- !private ["Ps23CustomStringConvertible", "value"]
+- ["Ps23CustomStringConvertible", "viewDidLoad"]
+- ["Ps23CustomStringConvertible", "viewWillDisappear"]
+- ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "consultingFeeSlider"]
+- ["Ps9Equatable", "didReceiveMemoryWarning"]
+- !private ["Ps9Equatable", "distance"]
+- ["Ps9Equatable", "distanceSlider"]
+- ["Ps9Equatable", "distanceSliderChanged"]
+- !private ["Ps9Equatable", "filterModel"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "ratingSlider"]
+- !private ["Ps9Equatable", "tabBarController"]
+- !private ["Ps9Equatable", "value"]
+- ["Ps9Equatable", "viewDidLoad"]
+- ["Ps9Equatable", "viewWillDisappear"]
+- ["Ps9Equatable", ""]
+- !private ["C14HospitalFinder11FilterModel", "distance"]
+- ["C14HospitalFinder20FilterViewController", "Bool"]
+- !private ["C14HospitalFinder20FilterViewController", "MainTabController"]
+- ["C14HospitalFinder20FilterViewController", "UISlider"]
+- ["C14HospitalFinder20FilterViewController", "consultingFeeSlider"]
+- ["C14HospitalFinder20FilterViewController", "deinit"]
+- ["C14HospitalFinder20FilterViewController", "didReceiveMemoryWarning"]
+- ["C14HospitalFinder20FilterViewController", "distanceSlider"]
+- ["C14HospitalFinder20FilterViewController", "distanceSliderChanged"]
+- ["C14HospitalFinder20FilterViewController", "init"]
+- ["C14HospitalFinder20FilterViewController", "ratingSlider"]
+- !private ["C14HospitalFinder20FilterViewController", "tabBarController"]
+- ["C14HospitalFinder20FilterViewController", "viewDidLoad"]
+- ["C14HospitalFinder20FilterViewController", "viewWillDisappear"]
+- ["Ps8Hashable", "consultingFeeSlider"]
+- ["Ps8Hashable", "didReceiveMemoryWarning"]
+- !private ["Ps8Hashable", "distance"]
+- ["Ps8Hashable", "distanceSlider"]
+- ["Ps8Hashable", "distanceSliderChanged"]
+- !private ["Ps8Hashable", "filterModel"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "ratingSlider"]
+- !private ["Ps8Hashable", "tabBarController"]
+- !private ["Ps8Hashable", "value"]
+- ["Ps8Hashable", "viewDidLoad"]
+- ["Ps8Hashable", "viewWillDisappear"]
+- ["Ps8Hashable", ""]
+- !private ["C14HospitalFinder17MainTabController", "filterModel"]
+- ["PSo8NSCoding", "consultingFeeSlider"]
+- ["PSo8NSCoding", "didReceiveMemoryWarning"]
+- ["PSo8NSCoding", "distanceSlider"]
+- ["PSo8NSCoding", "distanceSliderChanged"]
+- !private ["PSo8NSCoding", "filterModel"]
+- ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "ratingSlider"]
+- !private ["PSo8NSCoding", "tabBarController"]
+- !private ["PSo8NSCoding", "value"]
+- ["PSo8NSCoding", "viewDidLoad"]
+- ["PSo8NSCoding", "viewWillDisappear"]
+- ["PSo8NSCoding", ""]
+- ["PSo26NSExtensionRequestHandling", "consultingFeeSlider"]
+- ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
+- ["PSo26NSExtensionRequestHandling", "distanceSlider"]
+- ["PSo26NSExtensionRequestHandling", "distanceSliderChanged"]
+- !private ["PSo26NSExtensionRequestHandling", "filterModel"]
+- ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "ratingSlider"]
+- !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
+- ["PSo26NSExtensionRequestHandling", "viewDidLoad"]
+- ["PSo26NSExtensionRequestHandling", "viewWillDisappear"]
+- ["PSo26NSExtensionRequestHandling", ""]
+- ["CSo8NSObject", "Bool"]
+- !private ["CSo8NSObject", "MainTabController"]
+- ["CSo8NSObject", "UISlider"]
+- ["CSo8NSObject", "consultingFeeSlider"]
+- ["CSo8NSObject", "didReceiveMemoryWarning"]
+- !private ["CSo8NSObject", "distance"]
+- ["CSo8NSObject", "distanceSlider"]
+- ["CSo8NSObject", "distanceSliderChanged"]
+- !private ["CSo8NSObject", "filterModel"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "ratingSlider"]
+- !private ["CSo8NSObject", "tabBarController"]
+- !private ["CSo8NSObject", "value"]
+- ["CSo8NSObject", "viewDidLoad"]
+- ["CSo8NSObject", "viewWillDisappear"]
+- ["PSo16NSObjectProtocol", "consultingFeeSlider"]
+- ["PSo16NSObjectProtocol", "didReceiveMemoryWarning"]
+- !private ["PSo16NSObjectProtocol", "distance"]
+- ["PSo16NSObjectProtocol", "distanceSlider"]
+- ["PSo16NSObjectProtocol", "distanceSliderChanged"]
+- !private ["PSo16NSObjectProtocol", "filterModel"]
+- ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "ratingSlider"]
+- !private ["PSo16NSObjectProtocol", "tabBarController"]
+- !private ["PSo16NSObjectProtocol", "value"]
+- ["PSo16NSObjectProtocol", "viewDidLoad"]
+- ["PSo16NSObjectProtocol", "viewWillDisappear"]
+- ["PSo16NSObjectProtocol", ""]
+- !private ["Sq", "deinit"]
+- !private ["PSo29UIAccessibilityIdentification", "value"]
+- !private ["PSo12UIAppearance", "value"]
+- ["PSo21UIAppearanceContainer", "consultingFeeSlider"]
+- ["PSo21UIAppearanceContainer", "didReceiveMemoryWarning"]
+- ["PSo21UIAppearanceContainer", "distanceSlider"]
+- ["PSo21UIAppearanceContainer", "distanceSliderChanged"]
+- !private ["PSo21UIAppearanceContainer", "filterModel"]
+- ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "ratingSlider"]
+- !private ["PSo21UIAppearanceContainer", "tabBarController"]
+- !private ["PSo21UIAppearanceContainer", "value"]
+- ["PSo21UIAppearanceContainer", "viewDidLoad"]
+- ["PSo21UIAppearanceContainer", "viewWillDisappear"]
+- ["PSo21UIAppearanceContainer", ""]
+- ["PSo18UIContentContainer", "consultingFeeSlider"]
+- ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
+- ["PSo18UIContentContainer", "distanceSlider"]
+- ["PSo18UIContentContainer", "distanceSliderChanged"]
+- !private ["PSo18UIContentContainer", "filterModel"]
+- ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "ratingSlider"]
+- !private ["PSo18UIContentContainer", "tabBarController"]
+- ["PSo18UIContentContainer", "viewDidLoad"]
+- ["PSo18UIContentContainer", "viewWillDisappear"]
+- ["PSo18UIContentContainer", ""]
+- !private ["CSo9UIControl", "value"]
+- !private ["PSo17UICoordinateSpace", "value"]
+- !private ["PSo13UIDynamicItem", "value"]
+- ["PSo18UIFocusEnvironment", "consultingFeeSlider"]
+- ["PSo18UIFocusEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UIFocusEnvironment", "distanceSlider"]
+- ["PSo18UIFocusEnvironment", "distanceSliderChanged"]
+- !private ["PSo18UIFocusEnvironment", "filterModel"]
+- ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "ratingSlider"]
+- !private ["PSo18UIFocusEnvironment", "tabBarController"]
+- !private ["PSo18UIFocusEnvironment", "value"]
+- ["PSo18UIFocusEnvironment", "viewDidLoad"]
+- ["PSo18UIFocusEnvironment", "viewWillDisappear"]
+- ["PSo18UIFocusEnvironment", ""]
+- ["CSo11UIResponder", "Bool"]
+- !private ["CSo11UIResponder", "MainTabController"]
+- ["CSo11UIResponder", "UISlider"]
+- ["CSo11UIResponder", "consultingFeeSlider"]
+- ["CSo11UIResponder", "didReceiveMemoryWarning"]
+- ["CSo11UIResponder", "distanceSlider"]
+- ["CSo11UIResponder", "distanceSliderChanged"]
+- !private ["CSo11UIResponder", "filterModel"]
+- ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "ratingSlider"]
+- !private ["CSo11UIResponder", "tabBarController"]
+- !private ["CSo11UIResponder", "value"]
+- ["CSo11UIResponder", "viewDidLoad"]
+- ["CSo11UIResponder", "viewWillDisappear"]
+- !private ["CSo8UISlider", "value"]
+- ["PSo16UIStateRestoring", "consultingFeeSlider"]
+- ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
+- ["PSo16UIStateRestoring", "distanceSlider"]
+- ["PSo16UIStateRestoring", "distanceSliderChanged"]
+- !private ["PSo16UIStateRestoring", "filterModel"]
+- ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "ratingSlider"]
+- !private ["PSo16UIStateRestoring", "tabBarController"]
+- ["PSo16UIStateRestoring", "viewDidLoad"]
+- ["PSo16UIStateRestoring", "viewWillDisappear"]
+- ["PSo16UIStateRestoring", ""]
+- !private ["CSo18UITabBarController", "filterModel"]
+- !private ["PSo16UITabBarDelegate", "filterModel"]
+- ["PSo18UITraitEnvironment", "consultingFeeSlider"]
+- ["PSo18UITraitEnvironment", "didReceiveMemoryWarning"]
+- ["PSo18UITraitEnvironment", "distanceSlider"]
+- ["PSo18UITraitEnvironment", "distanceSliderChanged"]
+- !private ["PSo18UITraitEnvironment", "filterModel"]
+- ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "ratingSlider"]
+- !private ["PSo18UITraitEnvironment", "tabBarController"]
+- !private ["PSo18UITraitEnvironment", "value"]
+- ["PSo18UITraitEnvironment", "viewDidLoad"]
+- ["PSo18UITraitEnvironment", "viewWillDisappear"]
+- ["PSo18UITraitEnvironment", ""]
+- !private ["CSo6UIView", "value"]
+- ["CSo16UIViewController", "Bool"]
+- !private ["CSo16UIViewController", "MainTabController"]
+- ["CSo16UIViewController", "UISlider"]
+- ["CSo16UIViewController", "consultingFeeSlider"]
+- ["CSo16UIViewController", "didReceiveMemoryWarning"]
+- ["CSo16UIViewController", "distanceSlider"]
+- ["CSo16UIViewController", "distanceSliderChanged"]
+- !private ["CSo16UIViewController", "filterModel"]
+- ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "ratingSlider"]
+- !private ["CSo16UIViewController", "tabBarController"]
+- ["CSo16UIViewController", "viewDidLoad"]
+- ["CSo16UIViewController", "viewWillDisappear"]
+- ["CSo16UIViewController", ""]
+- !private ["Ps12_Reflectable", "value"]
+depends-nominal:
+- "Ps9AnyObject"
+- "Ps11CVarArgType"
+- "Ps28CustomDebugStringConvertible"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "C14HospitalFinder11FilterModel"
+- "C14HospitalFinder20FilterViewController"
+- "Ps8Hashable"
+- !private "C14HospitalFinder17MainTabController"
+- "PSo8NSCoding"
+- "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- !private "Sq"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo18UIContentContainer"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "CSo11UIResponder"
+- !private "CSo8UISlider"
+- "PSo16UIStateRestoring"
+- !private "CSo18UITabBarController"
+- !private "PSo16UITabBarDelegate"
+- "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps12_Reflectable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+interface-hash: "3a487a1f5966807611be02a5a7bf17c0"
