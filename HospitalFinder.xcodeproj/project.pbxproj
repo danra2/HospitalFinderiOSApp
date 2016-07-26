@@ -21,6 +21,8 @@
 		214C6EFA1D46DD57007EC6DE /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6EF91D46DD57007EC6DE /* CustomCell.swift */; };
 		214C6EFD1D46E128007EC6DE /* Hospital+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6EFB1D46E128007EC6DE /* Hospital+CoreDataProperties.swift */; };
 		214C6EFE1D46E128007EC6DE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6EFC1D46E128007EC6DE /* Hospital.swift */; };
+		34E5E0691D480888006E6BFA /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5E0681D480888006E6BFA /* FilterModel.swift */; };
+		34E5E06B1D4808B4006E6BFA /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5E06A1D4808B4006E6BFA /* MainTabController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		214C6EF91D46DD57007EC6DE /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		214C6EFB1D46E128007EC6DE /* Hospital+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Hospital+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		214C6EFC1D46E128007EC6DE /* Hospital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
+		34E5E0681D480888006E6BFA /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		34E5E06A1D4808B4006E6BFA /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				214C6EE61D46B652007EC6DE /* LaunchScreen.storyboard */,
 				214C6EE91D46B652007EC6DE /* Info.plist */,
 				214C6EE11D46B652007EC6DE /* HospitalFinder.xcdatamodeld */,
+				34E5E0681D480888006E6BFA /* FilterModel.swift */,
+				34E5E06A1D4808B4006E6BFA /* MainTabController.swift */,
 			);
 			path = HospitalFinder;
 			sourceTree = "<group>";
@@ -165,8 +171,10 @@
 				214C6EF21D46DB00007EC6DE /* FilterViewController.swift in Sources */,
 				214C6EE31D46B652007EC6DE /* HospitalFinder.xcdatamodeld in Sources */,
 				214C6EF81D46DBD3007EC6DE /* ChooseCityViewController.swift in Sources */,
+				34E5E0691D480888006E6BFA /* FilterModel.swift in Sources */,
 				214C6EFD1D46E128007EC6DE /* Hospital+CoreDataProperties.swift in Sources */,
 				214C6EF41D46DB0F007EC6DE /* BookmarkViewController.swift in Sources */,
+				34E5E06B1D4808B4006E6BFA /* MainTabController.swift in Sources */,
 				214C6EFA1D46DD57007EC6DE /* CustomCell.swift in Sources */,
 				214C6EDD1D46B652007EC6DE /* ViewController.swift in Sources */,
 				214C6EF61D46DB1B007EC6DE /* LocationViewController.swift in Sources */,
