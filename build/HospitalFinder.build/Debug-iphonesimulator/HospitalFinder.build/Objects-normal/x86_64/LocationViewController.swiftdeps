@@ -6,8 +6,8 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder22LocationViewController", ""]
 provides-dynamic-lookup:
-- "viewDidLoad"
 - "didReceiveMemoryWarning"
+- "viewDidLoad"
 depends-top-level:
 - "LocationViewController"
 - "UIViewController"

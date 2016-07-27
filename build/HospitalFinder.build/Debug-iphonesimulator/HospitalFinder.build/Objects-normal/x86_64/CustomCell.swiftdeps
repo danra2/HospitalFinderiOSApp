@@ -6,18 +6,18 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder10CustomCell", ""]
 provides-dynamic-lookup:
-- "ratingLabel"
-- "hospitialImageView"
-- "websiteButton"
 - "locationLabel"
-- "phoneButtonLabel"
 - "nameLabel"
+- "phoneButtonLabel"
+- "hospitialImageView"
+- "ratingLabel"
+- "websiteButton"
 depends-top-level:
-- "UITableViewCell"
-- "CustomCell"
-- "UIImageView"
 - "UILabel"
+- "UIImageView"
+- "CustomCell"
 - "UIButton"
+- "UITableViewCell"
 depends-member:
 - ["Ps9AnyObject", "hospitialImageView"]
 - ["Ps9AnyObject", "init"]
