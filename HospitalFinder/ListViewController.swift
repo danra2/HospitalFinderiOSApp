@@ -8,25 +8,33 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 class ListViewController: UITableViewController,UISearchResultsUpdating {
     
     var hospitals = [Hospital]()
     var toPass: String?
     var filterModel = FilterModel()
+    var textfilteredHospitals = [Hospital]()
     var filteredHospitals = [Hospital]()
     let searchController = UISearchController(searchResultsController: nil)
-
+    var locationManager:LocationManager?
+    var userLocation:CLLocation?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+        self.locationManager = LocationManager()
+        self.locationManager!.getlocationForUser { (userLocation: CLLocation) -> () in
+            print(userLocation)
+            self.userLocation = userLocation
+            self.getAllHospitals()
+        }
+        
         
         print(toPass!)
         
-        getAllHospitals()
         
     }
     
@@ -37,9 +45,15 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
         print(filterModel.distance)
-       
+        print(filterModel.rating)
+        filteredHospitals = applyFilterModel(self.filterModel, hospitals: hospitals)
+        
+        tableView.reloadData()
       
+        
+        
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -48,9 +62,9 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         
         // check for active search
         if searchController.active && searchController.searchBar.text != "" {
-            hospital = filteredHospitals[indexPath.row]
+            hospital = textfilteredHospitals[indexPath.row]
         } else {
-            hospital = hospitals[indexPath.row]
+            hospital = filteredHospitals[indexPath.row]
         }
         
         
@@ -70,9 +84,9 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
-            return filteredHospitals.count
+            return textfilteredHospitals.count
         }
-        return hospitals.count
+        return filteredHospitals.count
     }
     
     
@@ -92,17 +106,31 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
                         //newHospital.name = "\(result.valueForKey("name")!)"
                         newHospital.location = "\(result.valueForKey("location")!)"
                         newHospital.phoneNumber = (result.valueForKey("phone") as? String)!
-                        newHospital.rating = (result.valueForKey("rating") as? Double)!
+                        newHospital.rating = (result.valueForKey("rating") as? Float)!
                         newHospital.imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String) 
                         // do not add image if image URL does not exist
                         if let imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String) {
                             newHospital.image =  UIImage(data: NSData(contentsOfURL: NSURL(string:imageUrl)!)!)
                             
+                        
+                            
+                        }
+                        
+                        if self.userLocation != nil{
+                            
+                            let tempLat = result.valueForKey("latitude") as! Double
+                            let tempLong = result.valueForKey("longitude") as! Double
+                            let tempLocation = CLLocation(latitude: tempLat, longitude: tempLong)
+                            newHospital.distanceFromUser = (self.userLocation?.distanceFromLocation(tempLocation))!/1000 * 0.621371
                         }
                    
                         self.hospitals.append(newHospital)
                     }
+                    
+                    
                     dispatch_async(dispatch_get_main_queue(), {
+                        self.filteredHospitals = self.applyFilterModel(self.filterModel, hospitals: self.hospitals)
+                        
                         self.tableView.reloadData()
                     })
                 }
@@ -113,9 +141,8 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
     }
     
     
-    
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredHospitals = hospitals.filter { hospital in
+        textfilteredHospitals = filteredHospitals.filter { hospital in
             return hospital.name.lowercaseString.containsString(searchText.lowercaseString)
         }
         
@@ -124,6 +151,19 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+        
+    }
+    
+    
+    func applyFilterModel(model:FilterModel,hospitals:[Hospital]) -> [Hospital]{
+        
+        var outHospitals = [Hospital]()
+        
+        outHospitals = hospitals.filter { hospital in
+            return hospital.rating > model.rating && (hospital.distanceFromUser! as Double) < model.distance
+        }
+        
+        return outHospitals
         
     }
     

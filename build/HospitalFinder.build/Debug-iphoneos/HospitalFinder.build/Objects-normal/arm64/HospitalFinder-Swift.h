@@ -94,6 +94,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import ObjectiveC;
+@import CoreLocation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -171,6 +172,8 @@ SWIFT_CLASS("_TtC14HospitalFinder10CustomCell")
 
 SWIFT_CLASS("_TtC14HospitalFinder11FilterModel")
 @interface FilterModel : NSObject
+@property (nonatomic) double distance;
+@property (nonatomic) float rating;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -182,6 +185,8 @@ SWIFT_CLASS("_TtC14HospitalFinder20FilterViewController")
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified distanceSlider;
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified ratingSlider;
 - (void)viewDidLoad;
+- (void)viewWillAppear:(BOOL)animated;
+- (IBAction)ratingSliderChanged:(UISlider * _Nonnull)sender;
 - (IBAction)distanceSliderChanged:(UISlider * _Nonnull)sender;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
@@ -189,6 +194,7 @@ SWIFT_CLASS("_TtC14HospitalFinder20FilterViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIImage;
 @class NSData;
 @class NSURLResponse;
 @class NSError;
@@ -200,13 +206,16 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @property (nonatomic, copy) NSString * _Nonnull location;
 @property (nonatomic, copy) NSString * _Nonnull phoneNumber;
 @property (nonatomic, copy) NSString * _Nonnull website;
-@property (nonatomic) double rating;
+@property (nonatomic) float rating;
 @property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, strong) UIImage * _Nullable image;
 + (void)getAllHospitals:(void (^ _Nonnull)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UISearchController;
+@class LocationManager;
+@class CLLocation;
 @class UITableView;
 @class NSIndexPath;
 
@@ -215,8 +224,11 @@ SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
 @property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
 @property (nonatomic, copy) NSString * _Nullable toPass;
 @property (nonatomic, strong) FilterModel * _Nonnull filterModel;
+@property (nonatomic, copy) NSArray<Hospital *> * _Nonnull textfilteredHospitals;
 @property (nonatomic, copy) NSArray<Hospital *> * _Nonnull filteredHospitals;
 @property (nonatomic, readonly, strong) UISearchController * _Nonnull searchController;
+@property (nonatomic, strong) LocationManager * _Nullable locationManager;
+@property (nonatomic, strong) CLLocation * _Nullable userLocation;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
@@ -224,11 +236,23 @@ SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
 - (void)getAllHospitals;
 - (void)filterContentForSearchText:(NSString * _Nonnull)searchText scope:(NSString * _Nonnull)scope;
 - (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
+- (NSArray<Hospital *> * _Nonnull)applyFilterModel:(FilterModel * _Nonnull)model hospitals:(NSArray<Hospital *> * _Nonnull)hospitals;
 - (IBAction)websiteButtonPressed:(UIButton * _Nonnull)sender;
 - (IBAction)phoneButtonPressed:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class CLLocationManager;
+
+SWIFT_CLASS("_TtC14HospitalFinder15LocationManager")
+@interface LocationManager : NSObject <CLLocationManagerDelegate>
+@property (nonatomic, strong) CLLocationManager * _Nonnull locationManager;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)getlocationForUser:(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateToLocation:(CLLocation * _Nonnull)newLocation fromLocation:(CLLocation * _Nonnull)oldLocation;
+- (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @end
 
 

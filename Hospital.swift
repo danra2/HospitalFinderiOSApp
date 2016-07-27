@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import UIKit
+import CoreLocation
 
 
 class Hospital: NSObject {
@@ -18,9 +19,10 @@ class Hospital: NSObject {
     var location = ""
     var phoneNumber = ""
     var website = ""
-    var rating = 0.00
+    var rating:Float = 0.00
     var imageUrl:String?
     var image:UIImage?
+    var distanceFromUser:CLLocationDistance?
         
     
 // Insert code here to add functionality to your managed object subclass
