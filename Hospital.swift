@@ -22,7 +22,7 @@ class Hospital: NSObject {
     var rating:Float = 0.00
     var imageUrl:String?
     var image:UIImage?
-    var distanceFromUser:CLLocationDistance?
+    var distanceFromUser:CLLocationDistance = 0 as! Double
         
     
 // Insert code here to add functionality to your managed object subclass

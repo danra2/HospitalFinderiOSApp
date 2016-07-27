@@ -209,6 +209,7 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @property (nonatomic) float rating;
 @property (nonatomic, copy) NSString * _Nullable imageUrl;
 @property (nonatomic, strong) UIImage * _Nullable image;
+@property (nonatomic) CLLocationDistance distanceFromUser;
 + (void)getAllHospitals:(void (^ _Nonnull)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -250,7 +251,7 @@ SWIFT_CLASS("_TtC14HospitalFinder15LocationManager")
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager * _Nonnull locationManager;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (void)getlocationForUser:(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
+- (BOOL)getlocationForUserAndReturnError:(NSError * _Nullable * _Null_unspecified)error :(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateToLocation:(CLLocation * _Nonnull)newLocation fromLocation:(CLLocation * _Nonnull)oldLocation;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @end

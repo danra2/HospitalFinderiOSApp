@@ -6,30 +6,32 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder8Hospital", ""]
 provides-dynamic-lookup:
+- "id"
+- "distanceFromUser"
 - "website"
 - "imageUrl"
-- "id"
+- "name"
 - "rating"
 - "image"
-- "getAllHospitals"
 - "phoneNumber"
-- "name"
+- "getAllHospitals"
 - "location"
 depends-top-level:
-- "CLLocationDistance"
+- "NSError"
+- "NSObject"
 - "Float"
 - "NSData"
-- "UIImage"
+- "CLLocationDistance"
+- "Void"
+- "StringLiteralType"
+- !private "NSURLSession"
 - "String"
-- "Hospital"
+- "Double"
+- "UIImage"
 - "Int"
 - "NSURLResponse"
 - !private "NSURL"
-- "NSObject"
-- "StringLiteralType"
-- "Void"
-- "NSError"
-- !private "NSURLSession"
+- "Hospital"
 depends-member:
 - ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "NSURL"]
@@ -144,6 +146,7 @@ depends-member:
 - ["Ps8Hashable", "website"]
 - ["Ps8Hashable", ""]
 - ["C14HospitalFinder8Hospital", "CLLocationDistance"]
+- ["C14HospitalFinder8Hospital", "Double"]
 - ["C14HospitalFinder8Hospital", "Float"]
 - ["C14HospitalFinder8Hospital", "Int"]
 - ["C14HospitalFinder8Hospital", "NSData"]
@@ -175,6 +178,7 @@ depends-member:
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "resume"]
 - ["CSo8NSObject", "CLLocationDistance"]
+- ["CSo8NSObject", "Double"]
 - ["CSo8NSObject", "Float"]
 - ["CSo8NSObject", "Int"]
 - ["CSo8NSObject", "NSData"]
@@ -290,4 +294,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
-interface-hash: "dea5b95c68d3ce4eb8bc1e9b71b71b52"
+interface-hash: "b2a7fa1a4c4da24ca3fb207cf68907e2"

@@ -26,11 +26,17 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         super.viewDidLoad()
         
         self.locationManager = LocationManager()
-        self.locationManager!.getlocationForUser { (userLocation: CLLocation) -> () in
+        
+        do{
+        try
+            self.locationManager!.getlocationForUser { (userLocation: CLLocation) -> () in
             print(userLocation)
             self.userLocation = userLocation
             self.getAllHospitals()
-        }
+            }
+        }catch {
+            self.getAllHospitals()
+            }
         
         
         print(toPass!)
@@ -160,7 +166,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         var outHospitals = [Hospital]()
         
         outHospitals = hospitals.filter { hospital in
-            return hospital.rating > model.rating && (hospital.distanceFromUser! as Double) < model.distance
+            return hospital.rating > model.rating && (hospital.distanceFromUser as Double) <= model.distance
         }
         
         return outHospitals

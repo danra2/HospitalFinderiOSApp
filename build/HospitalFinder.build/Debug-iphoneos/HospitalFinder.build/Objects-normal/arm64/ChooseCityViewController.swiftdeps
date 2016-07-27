@@ -6,29 +6,29 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder24ChooseCityViewController", ""]
 provides-dynamic-lookup:
-- "prepareForSegue"
+- "seattleButtonPressed"
 - "didReceiveMemoryWarning"
 - "cityNameLabel"
-- "seattleButtonPressed"
 - "bellevueButton"
+- "prepareForSegue"
 - "viewDidLoad"
-- "bellevueButtonPressed"
-- "seattleButton"
 - "goButton"
+- "seattleButton"
+- "bellevueButtonPressed"
 depends-top-level:
-- "UILabel"
 - "ChooseCityViewController"
-- !private "=="
-- !private "print"
-- "AnyObject"
-- "UIStoryboardSegue"
-- !private "UITabBarController"
-- !private "StringLiteralType"
-- "UIButton"
 - !private "MainTabController"
-- !private "BooleanLiteralType"
+- !private "=="
 - "UIViewController"
 - !private "ListViewController"
+- "UILabel"
+- !private "print"
+- !private "StringLiteralType"
+- "UIButton"
+- "UIStoryboardSegue"
+- "AnyObject"
+- !private "BooleanLiteralType"
+- !private "UITabBarController"
 depends-member:
 - ["Ps9AnyObject", "bellevueButton"]
 - ["Ps9AnyObject", "bellevueButtonPressed"]

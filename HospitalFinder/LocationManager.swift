@@ -11,6 +11,11 @@ import CoreLocation
 
 class LocationManager: NSObject,CLLocationManagerDelegate  {
     
+    enum LocationManagerError:ErrorType{
+        case NoLocationServiceError // This is default error
+        case DeniedError
+    }
+    
     
     var locationManager:CLLocationManager
     var locationManagerClosures: [((userLocation: CLLocation) -> ())] = []
@@ -23,7 +28,9 @@ class LocationManager: NSObject,CLLocationManagerDelegate  {
     }
     
     
-    func getlocationForUser(userLocationClosure: ((userLocation: CLLocation) -> ())) {
+    func getlocationForUser(userLocationClosure: ((userLocation: CLLocation) -> ())) throws {
+        
+        
         
         self.locationManagerClosures.append(userLocationClosure)
         
@@ -33,9 +40,13 @@ class LocationManager: NSObject,CLLocationManagerDelegate  {
             if CLLocationManager.authorizationStatus() == .NotDetermined {
                 locationManager.requestWhenInUseAuthorization()
             } else if CLLocationManager.authorizationStatus() == .Restricted || CLLocationManager.authorizationStatus() == .Denied {
+                throw LocationManagerError.DeniedError
             } else if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
                 // This will trigger the locationManager:didUpdateLocation delegate method to get called when the next available location of the user is available
                 locationManager.startUpdatingLocation()
+            }
+            else{
+                throw LocationManagerError.NoLocationServiceError
             }
         }
         

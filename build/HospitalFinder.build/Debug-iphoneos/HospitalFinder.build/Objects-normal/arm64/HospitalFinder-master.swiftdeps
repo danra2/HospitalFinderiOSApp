@@ -1,6 +1,6 @@
 version: "Apple Swift version 2.2 (swiftlang-703.0.18.8 clang-703.0.31)"
 options: "fdc907c8958e0b658e0f83c1f3c83087"
-build_time: [522907528, 271878000]
+build_time: [522959518, 618402000]
 inputs:
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/FilterViewController.swift": [522905697, 0]
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/ChooseCityViewController.swift": [522888317, 0]
@@ -10,7 +10,7 @@ inputs:
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/CustomCell.swift": [522882310, 0]
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/ViewController.swift": [522882310, 0]
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/LocationViewController.swift": [522882310, 0]
-  "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/ListViewController.swift": [522907003, 0]
+  "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/ListViewController.swift": [522959518, 0]
   "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/AppDelegate.swift": [522882310, 0]
-  "/Users/kevm1892/Documents/HospitalFinderiOSApp/Hospital.swift": [522903829, 0]
-  "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/LocationManager.swift": [522901795, 0]
+  "/Users/kevm1892/Documents/HospitalFinderiOSApp/Hospital.swift": [522959518, 0]
+  "/Users/kevm1892/Documents/HospitalFinderiOSApp/HospitalFinder/LocationManager.swift": [522959364, 0]
