@@ -8,10 +8,21 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 
-class Hospital: NSManagedObject {
-
+class Hospital: NSObject {
+    
+    var name: String = ""
+    var id = Int()    
+    var location = ""
+    var phoneNumber = ""
+    var website = ""
+    var rating = 0.00
+    var imageUrl:String?
+    var image:UIImage?
+        
+    
 // Insert code here to add functionality to your managed object subclass
     static func getAllHospitals(completionHandler: (data: NSData?, response: NSURLResponse?, error: NSError?) -> Void) {
         // Specify the url that we will be sending the GET Request to

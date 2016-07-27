@@ -28,7 +28,7 @@ class ChooseCityViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        let tabBarC : UITabBarController = segue.destinationViewController as! UITabBarController
+        let tabBarC : UITabBarController = segue.destinationViewController as! MainTabController
         let desView: ListViewController = tabBarC.viewControllers?.first as! ListViewController
 
         if (segue.identifier == "toTabBar") {

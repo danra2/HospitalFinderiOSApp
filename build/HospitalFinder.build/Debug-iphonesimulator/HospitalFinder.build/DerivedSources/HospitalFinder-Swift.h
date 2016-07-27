@@ -94,7 +94,6 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import ObjectiveC;
-@import CoreData;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -190,38 +189,43 @@ SWIFT_CLASS("_TtC14HospitalFinder20FilterViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class UIImage;
 @class NSData;
 @class NSURLResponse;
 @class NSError;
-@class NSEntityDescription;
 
 SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
-@interface Hospital : NSManagedObject
+@interface Hospital : NSObject
+@property (nonatomic, copy) NSString * _Nonnull name;
+@property (nonatomic) NSInteger id;
+@property (nonatomic, copy) NSString * _Nonnull location;
+@property (nonatomic, copy) NSString * _Nonnull phoneNumber;
+@property (nonatomic, copy) NSString * _Nonnull website;
+@property (nonatomic) double rating;
+@property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, strong) UIImage * _Nullable image;
 + (void)getAllHospitals:(void (^ _Nonnull)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler;
-- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSNumber;
-
-@interface Hospital (SWIFT_EXTENSION(HospitalFinder))
-@property (nonatomic, copy) NSString * _Nullable name;
-@property (nonatomic, strong) NSNumber * _Nullable id;
-@end
-
-@class NSArray;
+@class UISearchController;
 @class UITableView;
 @class NSIndexPath;
 
 SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
-@interface ListViewController : UITableViewController
-@property (nonatomic, strong) NSArray * _Nonnull hospitals;
+@interface ListViewController : UITableViewController <UISearchResultsUpdating>
+@property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
 @property (nonatomic, copy) NSString * _Nullable toPass;
 @property (nonatomic, strong) FilterModel * _Nonnull filterModel;
+@property (nonatomic, copy) NSArray<Hospital *> * _Nonnull filteredHospitals;
+@property (nonatomic, readonly, strong) UISearchController * _Nonnull searchController;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (void)getAllHospitals;
+- (void)filterContentForSearchText:(NSString * _Nonnull)searchText scope:(NSString * _Nonnull)scope;
+- (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
 - (IBAction)websiteButtonPressed:(UIButton * _Nonnull)sender;
 - (IBAction)phoneButtonPressed:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;

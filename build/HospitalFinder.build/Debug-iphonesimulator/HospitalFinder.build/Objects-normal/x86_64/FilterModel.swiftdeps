@@ -7,9 +7,9 @@ provides-member:
 - ["C14HospitalFinder11FilterModel", ""]
 provides-dynamic-lookup:
 depends-top-level:
-- "FilterModel"
 - "Float"
 - "NSObject"
+- "FilterModel"
 depends-member:
 - ["Ps9AnyObject", "distance"]
 - ["Ps9AnyObject", "init"]

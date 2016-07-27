@@ -16,5 +16,6 @@ extension Hospital {
 
     @NSManaged var name: String?
     @NSManaged var id: NSNumber?
+   
 
 }

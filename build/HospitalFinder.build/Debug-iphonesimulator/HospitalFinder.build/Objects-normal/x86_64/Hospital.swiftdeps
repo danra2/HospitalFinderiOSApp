@@ -6,105 +6,202 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder8Hospital", ""]
 provides-dynamic-lookup:
+- "rating"
+- "imageUrl"
+- "id"
+- "phoneNumber"
+- "website"
+- "image"
+- "name"
 - "getAllHospitals"
+- "location"
 depends-top-level:
-- !private "StringLiteralType"
-- "NSURLResponse"
+- "Hospital"
+- "Int"
+- "NSObject"
+- "StringLiteralType"
+- !private "NSURLSession"
+- "UIImage"
+- "String"
 - "NSError"
 - "NSData"
-- !private "NSURL"
-- "Hospital"
-- "NSManagedObject"
+- "NSURLResponse"
 - "Void"
-- !private "NSURLSession"
+- !private "NSURL"
 depends-member:
+- ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "NSURL"]
 - !private ["Ps9AnyObject", "NSURLSession"]
 - !private ["Ps9AnyObject", "dataTaskWithURL"]
 - ["Ps9AnyObject", "getAllHospitals"]
+- ["Ps9AnyObject", "id"]
+- ["Ps9AnyObject", "image"]
+- ["Ps9AnyObject", "imageUrl"]
 - ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "location"]
+- ["Ps9AnyObject", "name"]
+- ["Ps9AnyObject", "phoneNumber"]
+- ["Ps9AnyObject", "rating"]
 - !private ["Ps9AnyObject", "resume"]
 - !private ["Ps9AnyObject", "sharedSession"]
+- ["Ps9AnyObject", "website"]
 - ["Ps9AnyObject", ""]
+- ["Ps22BidirectionalIndexType", "init"]
+- ["Ps21BitwiseOperationsType", "init"]
+- ["Ps11CVarArgType", "Int"]
 - !private ["Ps11CVarArgType", "NSURL"]
 - !private ["Ps11CVarArgType", "NSURLSession"]
 - !private ["Ps11CVarArgType", "dataTaskWithURL"]
 - ["Ps11CVarArgType", "getAllHospitals"]
+- ["Ps11CVarArgType", "id"]
+- ["Ps11CVarArgType", "image"]
+- ["Ps11CVarArgType", "imageUrl"]
 - ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "location"]
+- ["Ps11CVarArgType", "name"]
+- ["Ps11CVarArgType", "phoneNumber"]
+- ["Ps11CVarArgType", "rating"]
 - !private ["Ps11CVarArgType", "resume"]
 - !private ["Ps11CVarArgType", "sharedSession"]
+- ["Ps11CVarArgType", "website"]
 - ["Ps11CVarArgType", ""]
+- ["Ps10Comparable", "init"]
+- ["Ps28CustomDebugStringConvertible", "Int"]
 - !private ["Ps28CustomDebugStringConvertible", "NSURL"]
 - !private ["Ps28CustomDebugStringConvertible", "NSURLSession"]
 - !private ["Ps28CustomDebugStringConvertible", "dataTaskWithURL"]
 - ["Ps28CustomDebugStringConvertible", "getAllHospitals"]
+- ["Ps28CustomDebugStringConvertible", "id"]
+- ["Ps28CustomDebugStringConvertible", "image"]
+- ["Ps28CustomDebugStringConvertible", "imageUrl"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "location"]
+- ["Ps28CustomDebugStringConvertible", "name"]
+- ["Ps28CustomDebugStringConvertible", "phoneNumber"]
+- ["Ps28CustomDebugStringConvertible", "rating"]
 - !private ["Ps28CustomDebugStringConvertible", "resume"]
 - !private ["Ps28CustomDebugStringConvertible", "sharedSession"]
+- ["Ps28CustomDebugStringConvertible", "website"]
 - ["Ps28CustomDebugStringConvertible", ""]
+- ["Ps23CustomStringConvertible", "Int"]
 - !private ["Ps23CustomStringConvertible", "NSURL"]
 - !private ["Ps23CustomStringConvertible", "NSURLSession"]
 - !private ["Ps23CustomStringConvertible", "dataTaskWithURL"]
 - ["Ps23CustomStringConvertible", "getAllHospitals"]
+- ["Ps23CustomStringConvertible", "id"]
+- ["Ps23CustomStringConvertible", "image"]
+- ["Ps23CustomStringConvertible", "imageUrl"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "location"]
+- ["Ps23CustomStringConvertible", "name"]
+- ["Ps23CustomStringConvertible", "phoneNumber"]
+- ["Ps23CustomStringConvertible", "rating"]
 - !private ["Ps23CustomStringConvertible", "resume"]
 - !private ["Ps23CustomStringConvertible", "sharedSession"]
+- ["Ps23CustomStringConvertible", "website"]
 - ["Ps23CustomStringConvertible", ""]
+- ["Ps9Equatable", "Int"]
 - !private ["Ps9Equatable", "NSURL"]
 - !private ["Ps9Equatable", "NSURLSession"]
 - !private ["Ps9Equatable", "dataTaskWithURL"]
 - ["Ps9Equatable", "getAllHospitals"]
+- ["Ps9Equatable", "id"]
+- ["Ps9Equatable", "image"]
+- ["Ps9Equatable", "imageUrl"]
 - ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "location"]
+- ["Ps9Equatable", "name"]
+- ["Ps9Equatable", "phoneNumber"]
+- ["Ps9Equatable", "rating"]
 - !private ["Ps9Equatable", "resume"]
 - !private ["Ps9Equatable", "sharedSession"]
+- ["Ps9Equatable", "website"]
 - ["Ps9Equatable", ""]
+- ["Ps16ForwardIndexType", "init"]
+- ["Ps8Hashable", "Int"]
 - !private ["Ps8Hashable", "NSURL"]
 - !private ["Ps8Hashable", "NSURLSession"]
 - !private ["Ps8Hashable", "dataTaskWithURL"]
 - ["Ps8Hashable", "getAllHospitals"]
+- ["Ps8Hashable", "id"]
+- ["Ps8Hashable", "image"]
+- ["Ps8Hashable", "imageUrl"]
 - ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "location"]
+- ["Ps8Hashable", "name"]
+- ["Ps8Hashable", "phoneNumber"]
+- ["Ps8Hashable", "rating"]
 - !private ["Ps8Hashable", "resume"]
 - !private ["Ps8Hashable", "sharedSession"]
+- ["Ps8Hashable", "website"]
 - ["Ps8Hashable", ""]
+- ["C14HospitalFinder8Hospital", "Int"]
 - ["C14HospitalFinder8Hospital", "NSData"]
 - ["C14HospitalFinder8Hospital", "NSError"]
 - !private ["C14HospitalFinder8Hospital", "NSURL"]
 - ["C14HospitalFinder8Hospital", "NSURLResponse"]
 - !private ["C14HospitalFinder8Hospital", "NSURLSession"]
+- ["C14HospitalFinder8Hospital", "String"]
+- ["C14HospitalFinder8Hospital", "UIImage"]
 - ["C14HospitalFinder8Hospital", "Void"]
 - ["C14HospitalFinder8Hospital", "deinit"]
 - ["C14HospitalFinder8Hospital", "getAllHospitals"]
+- ["C14HospitalFinder8Hospital", "id"]
+- ["C14HospitalFinder8Hospital", "image"]
+- ["C14HospitalFinder8Hospital", "imageUrl"]
 - ["C14HospitalFinder8Hospital", "init"]
+- ["C14HospitalFinder8Hospital", "location"]
+- ["C14HospitalFinder8Hospital", "name"]
+- ["C14HospitalFinder8Hospital", "phoneNumber"]
+- ["C14HospitalFinder8Hospital", "rating"]
+- ["C14HospitalFinder8Hospital", "website"]
+- ["Si", "init"]
+- ["Ps21IntegerArithmeticType", "init"]
+- ["Ps25IntegerLiteralConvertible", "init"]
+- ["Ps11IntegerType", "init"]
+- ["Ps14MirrorPathType", "init"]
 - !private ["PSo8NSCoding", "init"]
 - !private ["PSo9NSCopying", "init"]
 - !private ["PSo9NSCopying", "resume"]
-- ["CSo15NSManagedObject", "NSData"]
-- ["CSo15NSManagedObject", "NSError"]
-- !private ["CSo15NSManagedObject", "NSURL"]
-- ["CSo15NSManagedObject", "NSURLResponse"]
-- !private ["CSo15NSManagedObject", "NSURLSession"]
-- ["CSo15NSManagedObject", "Void"]
-- ["CSo15NSManagedObject", "getAllHospitals"]
-- ["CSo15NSManagedObject", "init"]
-- ["CSo15NSManagedObject", ""]
+- ["CSo8NSObject", "Int"]
 - ["CSo8NSObject", "NSData"]
 - ["CSo8NSObject", "NSError"]
 - !private ["CSo8NSObject", "NSURL"]
 - ["CSo8NSObject", "NSURLResponse"]
 - !private ["CSo8NSObject", "NSURLSession"]
+- ["CSo8NSObject", "String"]
+- ["CSo8NSObject", "UIImage"]
 - ["CSo8NSObject", "Void"]
 - !private ["CSo8NSObject", "dataTaskWithURL"]
 - ["CSo8NSObject", "getAllHospitals"]
+- ["CSo8NSObject", "id"]
+- ["CSo8NSObject", "image"]
+- ["CSo8NSObject", "imageUrl"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "location"]
+- ["CSo8NSObject", "name"]
+- ["CSo8NSObject", "phoneNumber"]
+- ["CSo8NSObject", "rating"]
 - !private ["CSo8NSObject", "resume"]
 - !private ["CSo8NSObject", "sharedSession"]
+- ["CSo8NSObject", "website"]
+- ["CSo8NSObject", ""]
+- ["PSo16NSObjectProtocol", "Int"]
 - !private ["PSo16NSObjectProtocol", "NSURL"]
 - !private ["PSo16NSObjectProtocol", "NSURLSession"]
 - !private ["PSo16NSObjectProtocol", "dataTaskWithURL"]
 - ["PSo16NSObjectProtocol", "getAllHospitals"]
+- ["PSo16NSObjectProtocol", "id"]
+- ["PSo16NSObjectProtocol", "image"]
+- ["PSo16NSObjectProtocol", "imageUrl"]
 - ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "location"]
+- ["PSo16NSObjectProtocol", "name"]
+- ["PSo16NSObjectProtocol", "phoneNumber"]
+- ["PSo16NSObjectProtocol", "rating"]
 - !private ["PSo16NSObjectProtocol", "resume"]
 - !private ["PSo16NSObjectProtocol", "sharedSession"]
+- ["PSo16NSObjectProtocol", "website"]
 - ["PSo16NSObjectProtocol", ""]
 - !private ["PSo14NSSecureCoding", "init"]
 - !private ["CSo5NSURL", "init"]
@@ -112,19 +209,38 @@ depends-member:
 - !private ["CSo12NSURLSession", "sharedSession"]
 - !private ["CSo20NSURLSessionDataTask", "resume"]
 - !private ["CSo16NSURLSessionTask", "resume"]
+- ["Ps21RandomAccessIndexType", "init"]
+- ["Ps17SignedIntegerType", "init"]
+- ["Ps16SignedNumberType", "init"]
+- ["Ps10Strideable", "init"]
+- ["Ps33_BuiltinIntegerLiteralConvertible", "init"]
 - !private ["Ps32_FileReferenceLiteralConvertible", "init"]
-- !private ["Ps12_Reflectable", "init"]
+- ["Ps14_Incrementable", "init"]
+- ["Ps22_IntegerArithmeticType", "init"]
+- ["Ps12_IntegerType", "init"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- ["Ps22_RandomAccessAmbiguity", "init"]
+- ["Ps12_Reflectable", "init"]
+- ["Ps18_SignedIntegerType", "init"]
 depends-nominal:
 - "Ps9AnyObject"
+- "Ps22BidirectionalIndexType"
+- "Ps21BitwiseOperationsType"
 - "Ps11CVarArgType"
+- "Ps10Comparable"
 - "Ps28CustomDebugStringConvertible"
 - "Ps23CustomStringConvertible"
 - "Ps9Equatable"
+- "Ps16ForwardIndexType"
 - "Ps8Hashable"
 - "C14HospitalFinder8Hospital"
+- "Si"
+- "Ps21IntegerArithmeticType"
+- "Ps25IntegerLiteralConvertible"
+- "Ps11IntegerType"
+- "Ps14MirrorPathType"
 - !private "PSo8NSCoding"
 - !private "PSo9NSCopying"
-- "CSo15NSManagedObject"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 - !private "PSo14NSSecureCoding"
@@ -132,8 +248,19 @@ depends-nominal:
 - !private "CSo12NSURLSession"
 - !private "CSo20NSURLSessionDataTask"
 - !private "CSo16NSURLSessionTask"
+- "Ps21RandomAccessIndexType"
+- "Ps17SignedIntegerType"
+- "Ps16SignedNumberType"
+- "Ps10Strideable"
+- "Ps33_BuiltinIntegerLiteralConvertible"
 - !private "Ps32_FileReferenceLiteralConvertible"
-- !private "Ps12_Reflectable"
+- "Ps14_Incrementable"
+- "Ps22_IntegerArithmeticType"
+- "Ps12_IntegerType"
+- "Ps21_ObjectiveCBridgeable"
+- "Ps22_RandomAccessAmbiguity"
+- "Ps12_Reflectable"
+- "Ps18_SignedIntegerType"
 depends-dynamic-lookup:
 depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
@@ -145,4 +272,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "9797f90128a2f6014eca0f3057704c4c"
+interface-hash: "c21ed553650b499f591ff9de4da7b1eb"

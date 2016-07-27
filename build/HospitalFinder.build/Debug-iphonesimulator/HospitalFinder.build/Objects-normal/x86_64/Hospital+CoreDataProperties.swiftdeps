@@ -6,12 +6,12 @@ provides-member:
 - ["C14HospitalFinder8Hospital", "name"]
 - ["C14HospitalFinder8Hospital", "id"]
 provides-dynamic-lookup:
-- "id"
 - "name"
+- "id"
 depends-top-level:
-- "Hospital"
-- "NSNumber"
 - "String"
+- "NSNumber"
+- "Hospital"
 depends-member:
 - ["Ps9AnyObject", "id"]
 - ["Ps9AnyObject", "name"]
@@ -29,10 +29,6 @@ depends-member:
 - ["C14HospitalFinder8Hospital", "String"]
 - ["C14HospitalFinder8Hospital", "id"]
 - ["C14HospitalFinder8Hospital", "name"]
-- ["CSo15NSManagedObject", "NSNumber"]
-- ["CSo15NSManagedObject", "String"]
-- ["CSo15NSManagedObject", "id"]
-- ["CSo15NSManagedObject", "name"]
 - ["CSo8NSObject", "NSNumber"]
 - ["CSo8NSObject", "String"]
 - ["CSo8NSObject", "id"]
@@ -47,7 +43,6 @@ depends-nominal:
 - "Ps9Equatable"
 - "Ps8Hashable"
 - "C14HospitalFinder8Hospital"
-- "CSo15NSManagedObject"
 - "CSo8NSObject"
 - "PSo16NSObjectProtocol"
 depends-dynamic-lookup:
