@@ -22,6 +22,7 @@
 		214C6EFE1D46E128007EC6DE /* Hospital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214C6EFC1D46E128007EC6DE /* Hospital.swift */; };
 		34E5E0691D480888006E6BFA /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5E0681D480888006E6BFA /* FilterModel.swift */; };
 		34E5E06B1D4808B4006E6BFA /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5E06A1D4808B4006E6BFA /* MainTabController.swift */; };
+		34E5E06D1D484C79006E6BFA /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E5E06C1D484C79006E6BFA /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		214C6EFC1D46E128007EC6DE /* Hospital.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hospital.swift; sourceTree = "<group>"; };
 		34E5E0681D480888006E6BFA /* FilterModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		34E5E06A1D4808B4006E6BFA /* MainTabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
+		34E5E06C1D484C79006E6BFA /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,16 +82,17 @@
 				214C6EF71D46DBD3007EC6DE /* ChooseCityViewController.swift */,
 				214C6EEF1D46DAF2007EC6DE /* ListViewController.swift */,
 				214C6EF11D46DB00007EC6DE /* FilterViewController.swift */,
+				34E5E06C1D484C79006E6BFA /* LocationManager.swift */,
+				34E5E0681D480888006E6BFA /* FilterModel.swift */,
 				214C6EF31D46DB0F007EC6DE /* BookmarkViewController.swift */,
 				214C6EF51D46DB1B007EC6DE /* LocationViewController.swift */,
+				34E5E06A1D4808B4006E6BFA /* MainTabController.swift */,
 				214C6EDE1D46B652007EC6DE /* Main.storyboard */,
 				214C6EF91D46DD57007EC6DE /* CustomCell.swift */,
 				214C6EE41D46B652007EC6DE /* Assets.xcassets */,
 				214C6EE61D46B652007EC6DE /* LaunchScreen.storyboard */,
 				214C6EE91D46B652007EC6DE /* Info.plist */,
 				214C6EE11D46B652007EC6DE /* HospitalFinder.xcdatamodeld */,
-				34E5E0681D480888006E6BFA /* FilterModel.swift */,
-				34E5E06A1D4808B4006E6BFA /* MainTabController.swift */,
 			);
 			path = HospitalFinder;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				214C6EF01D46DAF2007EC6DE /* ListViewController.swift in Sources */,
 				214C6EDB1D46B652007EC6DE /* AppDelegate.swift in Sources */,
 				214C6EFE1D46E128007EC6DE /* Hospital.swift in Sources */,
+				34E5E06D1D484C79006E6BFA /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

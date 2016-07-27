@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import GLKit
 
 class FilterModel: NSObject {
     
-    var distance:Float?
-    var rating:Float?
+    var distance:Double
+    var rating:Float
+
+
+    
+    override init(){
+        distance = 100000
+        rating = 0.00
+    }
+    
+
 
 }

@@ -94,6 +94,7 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
 @import ObjectiveC;
+@import CoreLocation;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -168,19 +169,25 @@ SWIFT_CLASS("_TtC14HospitalFinder10CustomCell")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class Hospital;
 
 SWIFT_CLASS("_TtC14HospitalFinder11FilterModel")
 @interface FilterModel : NSObject
+- (NSArray<Hospital *> * _Nonnull)applyModel:(NSArray<Hospital *> * _Nonnull)hospitals;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class CLLocationManager;
+@class CLLocation;
 @class UISlider;
 
 SWIFT_CLASS("_TtC14HospitalFinder20FilterViewController")
-@interface FilterViewController : UIViewController
+@interface FilterViewController : UIViewController <CLLocationManagerDelegate>
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified consultingFeeSlider;
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified distanceSlider;
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified ratingSlider;
+@property (nonatomic, strong) CLLocationManager * _Nonnull locationManager;
+- (void)getlocationForUser:(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
 - (void)viewDidLoad;
 - (IBAction)distanceSliderChanged:(UISlider * _Nonnull)sender;
 - (void)viewWillDisappear:(BOOL)animated;
