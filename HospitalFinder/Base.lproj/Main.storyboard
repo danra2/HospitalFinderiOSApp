@@ -116,13 +116,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="WZi-4t-loh">
-                                <rect key="frame" x="0.0" y="20" width="600" height="346"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WZi-4t-loh">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAO-Nf-CBH">
+                                <rect key="frame" x="0.0" y="64" width="600" height="32"/>
+                                <color key="backgroundColor" red="0.050980392156862744" green="0.10980392156862745" blue="0.19215686274509802" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8:00 am - 5:00 pm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIr-tA-1fV">
+                                <rect key="frame" x="0.0" y="464" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiR-o0-cUe">
+                                <rect key="frame" x="0.0" y="493" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description for hospital." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bI5-Lr-Opb">
+                                <rect key="frame" x="0.0" y="522" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sGt-vF-xIc">
+                                <rect key="frame" x="248" y="104" width="105" height="30"/>
+                                <state key="normal" title="Direction demo"/>
+                                <connections>
+                                    <action selector="directionButton:" destination="neR-wk-EGA" eventType="touchUpInside" id="Ze2-bS-1g1"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hours of Operation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uY-wy-3zw">
+                                <rect key="frame" x="0.0" y="435" width="600" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="HJB-e0-Fh9" firstAttribute="top" secondItem="WZi-4t-loh" secondAttribute="bottom" id="162-cS-99e"/>
+                            <constraint firstItem="WZi-4t-loh" firstAttribute="top" secondItem="76L-vD-btE" secondAttribute="bottom" id="7Ig-i5-IjP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WZi-4t-loh" secondAttribute="trailing" constant="-20" id="GYa-rt-uXa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NAO-Nf-CBH" secondAttribute="trailing" constant="-20" id="JoI-FA-fLq"/>
+                            <constraint firstItem="NAO-Nf-CBH" firstAttribute="top" secondItem="76L-vD-btE" secondAttribute="bottom" id="SNn-UY-ch8"/>
+                            <constraint firstItem="WZi-4t-loh" firstAttribute="leading" secondItem="11k-Fl-0Nt" secondAttribute="leadingMargin" constant="-20" id="bkH-m2-hpY"/>
+                            <constraint firstItem="NAO-Nf-CBH" firstAttribute="leading" secondItem="11k-Fl-0Nt" secondAttribute="leadingMargin" constant="-20" id="dZ0-RE-tts"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Location" id="z6G-Fo-Y0m"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="bI5-Lr-Opb" id="eU2-ls-5aK"/>
+                        <outlet property="descriptionTitleLabel" destination="IiR-o0-cUe" id="O8h-OW-Hu7"/>
+                        <outlet property="hoursDescriptionLabel" destination="MIr-tA-1fV" id="2Bv-he-vcZ"/>
+                        <outlet property="hoursTitleLabel" destination="8uY-wy-3zw" id="IuV-J1-gHL"/>
+                        <outlet property="mapView" destination="WZi-4t-loh" id="j3d-qk-djZ"/>
+                        <outlet property="nameLabel" destination="NAO-Nf-CBH" id="bQS-HF-jcS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0wW-7C-vnu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -217,7 +272,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="151"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NUi-O5-Pgj" id="lUp-U3-jm0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="150.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="151"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzf-a9-lsa">
@@ -305,7 +360,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JxL-WB-LU6" id="rIk-Fc-bA7">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

@@ -17,6 +17,8 @@ class Hospital: NSObject {
     var name: String = ""
     var id = Int()    
     var location = ""
+    var latitude = 0.00 // Yung's code
+    var longitude = 0.00 // Yung's code
     var phoneNumber = ""
     var website = ""
     var rating:Float = 0.00
