@@ -20,28 +20,28 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
     let searchController = UISearchController(searchResultsController: nil)
     var locationManager:LocationManager?
     var userLocation:CLLocation?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UITabBar.appearance().barTintColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.locationManager = LocationManager()
-        
         do{
-        try
-            self.locationManager!.getlocationForUser { (userLocation: CLLocation) -> () in
-            print(userLocation)
-            self.userLocation = userLocation
-            self.getAllHospitals()
+            try
+                self.locationManager!.getlocationForUser { (userLocation: CLLocation) -> () in
+                    print(userLocation)
+                    self.userLocation = userLocation
+                    self.getAllHospitals()
             }
         }catch {
             self.getAllHospitals()
-            }
-        
-        
+        }
         print(toPass!)
-        
-        
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        self.searchController.searchBar.backgroundColor = UIColor.whiteColor()
+        return UIStatusBarStyle.LightContent
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -57,7 +57,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         filteredHospitals = applyFilterModel(self.filterModel, hospitals: hospitals)
         
         tableView.reloadData()
-      
+        
         
         
     }
@@ -84,7 +84,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         cell.phoneButtonLabel.setTitle(hospital.phoneNumber, forState: .Normal)
         cell.websiteButton.setTitle(hospital.website, forState: .Normal)
         cell.ratingLabel.text = "Rating: \(hospital.rating)"
-
+        
         // return cell so that Table View knows what to draw in each row
         return cell
     }
@@ -104,7 +104,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
                 
                 // Try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
                 if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSArray {
-//                    print(jsonResult.firstObject)
+                    //                    print(jsonResult.firstObject)
                     for result in jsonResult{
                         // need to put this code into a convience initalizier
                         let newHospital = Hospital()
@@ -113,12 +113,12 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
                         newHospital.location = "\(result.valueForKey("location")!)"
                         newHospital.phoneNumber = (result.valueForKey("phone") as? String)!
                         newHospital.rating = (result.valueForKey("rating") as? Float)!
-                        newHospital.imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String) 
+                        newHospital.imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String)
                         // do not add image if image URL does not exist
                         if let imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String) {
                             newHospital.image =  UIImage(data: NSData(contentsOfURL: NSURL(string:imageUrl)!)!)
                             
-                        
+                            
                             
                         }
                         
@@ -129,7 +129,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
                             let tempLocation = CLLocation(latitude: tempLat, longitude: tempLong)
                             newHospital.distanceFromUser = (self.userLocation?.distanceFromLocation(tempLocation))!/1000 * 0.621371
                         }
-                   
+                        
                         self.hospitals.append(newHospital)
                     }
                     
@@ -159,14 +159,12 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         filterContentForSearchText(searchController.searchBar.text!)
         
     }
-    
-    
     func applyFilterModel(model:FilterModel,hospitals:[Hospital]) -> [Hospital]{
         
         var outHospitals = [Hospital]()
         
         outHospitals = hospitals.filter { hospital in
-            return hospital.rating > model.rating && (hospital.distanceFromUser as Double) <= model.distance
+            return hospital.rating > model.rating && (hospital.distanceFromUser as Double) < model.distance
         }
         
         return outHospitals
