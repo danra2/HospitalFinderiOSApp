@@ -6,32 +6,34 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder8Hospital", ""]
 provides-dynamic-lookup:
-- "id"
-- "distanceFromUser"
-- "website"
-- "imageUrl"
-- "name"
+- "location"
+- "latitude"
 - "rating"
-- "image"
+- "distanceFromUser"
 - "phoneNumber"
 - "getAllHospitals"
-- "location"
+- "longitude"
+- "name"
+- "image"
+- "id"
+- "imageUrl"
+- "website"
 depends-top-level:
-- "NSError"
-- "NSObject"
 - "Float"
-- "NSData"
 - "CLLocationDistance"
 - "Void"
-- "StringLiteralType"
-- !private "NSURLSession"
-- "String"
-- "Double"
-- "UIImage"
-- "Int"
 - "NSURLResponse"
 - !private "NSURL"
+- "Int"
+- "UIImage"
+- "NSData"
+- "NSObject"
+- "String"
+- "Double"
+- "StringLiteralType"
 - "Hospital"
+- "NSError"
+- !private "NSURLSession"
 depends-member:
 - ["Ps9AnyObject", "Int"]
 - !private ["Ps9AnyObject", "NSURL"]
@@ -43,7 +45,9 @@ depends-member:
 - ["Ps9AnyObject", "image"]
 - ["Ps9AnyObject", "imageUrl"]
 - ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "latitude"]
 - ["Ps9AnyObject", "location"]
+- ["Ps9AnyObject", "longitude"]
 - ["Ps9AnyObject", "name"]
 - ["Ps9AnyObject", "phoneNumber"]
 - ["Ps9AnyObject", "rating"]
@@ -63,7 +67,9 @@ depends-member:
 - ["Ps11CVarArgType", "image"]
 - ["Ps11CVarArgType", "imageUrl"]
 - ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "latitude"]
 - ["Ps11CVarArgType", "location"]
+- ["Ps11CVarArgType", "longitude"]
 - ["Ps11CVarArgType", "name"]
 - ["Ps11CVarArgType", "phoneNumber"]
 - ["Ps11CVarArgType", "rating"]
@@ -82,7 +88,9 @@ depends-member:
 - ["Ps28CustomDebugStringConvertible", "image"]
 - ["Ps28CustomDebugStringConvertible", "imageUrl"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "latitude"]
 - ["Ps28CustomDebugStringConvertible", "location"]
+- ["Ps28CustomDebugStringConvertible", "longitude"]
 - ["Ps28CustomDebugStringConvertible", "name"]
 - ["Ps28CustomDebugStringConvertible", "phoneNumber"]
 - ["Ps28CustomDebugStringConvertible", "rating"]
@@ -100,7 +108,9 @@ depends-member:
 - ["Ps23CustomStringConvertible", "image"]
 - ["Ps23CustomStringConvertible", "imageUrl"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "latitude"]
 - ["Ps23CustomStringConvertible", "location"]
+- ["Ps23CustomStringConvertible", "longitude"]
 - ["Ps23CustomStringConvertible", "name"]
 - ["Ps23CustomStringConvertible", "phoneNumber"]
 - ["Ps23CustomStringConvertible", "rating"]
@@ -118,7 +128,9 @@ depends-member:
 - ["Ps9Equatable", "image"]
 - ["Ps9Equatable", "imageUrl"]
 - ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "latitude"]
 - ["Ps9Equatable", "location"]
+- ["Ps9Equatable", "longitude"]
 - ["Ps9Equatable", "name"]
 - ["Ps9Equatable", "phoneNumber"]
 - ["Ps9Equatable", "rating"]
@@ -137,7 +149,9 @@ depends-member:
 - ["Ps8Hashable", "image"]
 - ["Ps8Hashable", "imageUrl"]
 - ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "latitude"]
 - ["Ps8Hashable", "location"]
+- ["Ps8Hashable", "longitude"]
 - ["Ps8Hashable", "name"]
 - ["Ps8Hashable", "phoneNumber"]
 - ["Ps8Hashable", "rating"]
@@ -164,7 +178,9 @@ depends-member:
 - ["C14HospitalFinder8Hospital", "image"]
 - ["C14HospitalFinder8Hospital", "imageUrl"]
 - ["C14HospitalFinder8Hospital", "init"]
+- ["C14HospitalFinder8Hospital", "latitude"]
 - ["C14HospitalFinder8Hospital", "location"]
+- ["C14HospitalFinder8Hospital", "longitude"]
 - ["C14HospitalFinder8Hospital", "name"]
 - ["C14HospitalFinder8Hospital", "phoneNumber"]
 - ["C14HospitalFinder8Hospital", "rating"]
@@ -196,7 +212,9 @@ depends-member:
 - ["CSo8NSObject", "image"]
 - ["CSo8NSObject", "imageUrl"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "latitude"]
 - ["CSo8NSObject", "location"]
+- ["CSo8NSObject", "longitude"]
 - ["CSo8NSObject", "name"]
 - ["CSo8NSObject", "phoneNumber"]
 - ["CSo8NSObject", "rating"]
@@ -214,7 +232,9 @@ depends-member:
 - ["PSo16NSObjectProtocol", "image"]
 - ["PSo16NSObjectProtocol", "imageUrl"]
 - ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "latitude"]
 - ["PSo16NSObjectProtocol", "location"]
+- ["PSo16NSObjectProtocol", "longitude"]
 - ["PSo16NSObjectProtocol", "name"]
 - ["PSo16NSObjectProtocol", "phoneNumber"]
 - ["PSo16NSObjectProtocol", "rating"]
@@ -294,4 +314,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/arm64/CoreData.swiftmodule"
-interface-hash: "b2a7fa1a4c4da24ca3fb207cf68907e2"
+interface-hash: "c2d0dba9e2eb02deb97c0c849d28d9d6"

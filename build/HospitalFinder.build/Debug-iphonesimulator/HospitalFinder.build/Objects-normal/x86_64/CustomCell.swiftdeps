@@ -6,18 +6,18 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder10CustomCell", ""]
 provides-dynamic-lookup:
-- "locationLabel"
 - "nameLabel"
-- "phoneButtonLabel"
-- "hospitialImageView"
 - "ratingLabel"
+- "phoneButtonLabel"
+- "locationLabel"
+- "hospitialImageView"
 - "websiteButton"
 depends-top-level:
 - "UILabel"
-- "UIImageView"
-- "CustomCell"
 - "UIButton"
 - "UITableViewCell"
+- "UIImageView"
+- "CustomCell"
 depends-member:
 - ["Ps9AnyObject", "hospitialImageView"]
 - ["Ps9AnyObject", "init"]
@@ -240,5 +240,8 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreLocation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
 interface-hash: "bb0cccb5b1c06b4fe2fcbea8ddddb244"

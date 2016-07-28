@@ -10,8 +10,8 @@ provides-dynamic-lookup:
 - "rating"
 depends-top-level:
 - "Float"
-- "Double"
 - "FilterModel"
+- "Double"
 - "NSObject"
 depends-member:
 - ["Ps9AnyObject", "distance"]

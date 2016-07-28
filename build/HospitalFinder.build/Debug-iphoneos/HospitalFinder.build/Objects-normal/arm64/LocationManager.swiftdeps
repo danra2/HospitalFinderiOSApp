@@ -8,21 +8,21 @@ provides-member:
 - ["C14HospitalFinder15LocationManager", ""]
 - ["OC14HospitalFinder15LocationManager20LocationManagerError", ""]
 provides-dynamic-lookup:
+- "locationManager"
+- "locationManager"
+- "locationManager"
 - "getlocationForUser"
-- "locationManager"
-- "locationManager"
-- "locationManager"
 depends-top-level:
 - "CLLocationManagerDelegate"
-- "=="
-- "NSObject"
 - !private "||"
-- "CLLocationManager"
-- "CLLocation"
-- !private "Array"
 - "LocationManager"
-- "ErrorType"
+- "CLLocationManager"
 - "CLAuthorizationStatus"
+- "=="
+- "CLLocation"
+- "NSObject"
+- "ErrorType"
+- !private "Array"
 depends-member:
 - !private ["Ps9AnyObject", "CLLocationManager"]
 - !private ["Ps9AnyObject", "LocationManagerError"]
