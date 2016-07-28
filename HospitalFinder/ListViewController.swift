@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class ListViewController: UITableViewController,UISearchResultsUpdating {
+class ListViewController: UITableViewController,UISearchResultsUpdating,UISearchBarDelegate {
     
     var hospitals = [Hospital]()
     var toPass: String?
@@ -51,11 +51,12 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.scopeButtonTitles = ["Rating", "Distance"]
+        searchController.searchBar.delegate = self
         
         print(filterModel.distance)
         print(filterModel.rating)
         filteredHospitals = applyFilterModel(self.filterModel, hospitals: hospitals)
-        
         tableView.reloadData()
         
         
@@ -97,6 +98,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
     
     
     func getAllHospitals() {
+        hospitals = [Hospital]()
         print("> getAllHospitals()")
         Hospital.getAllHospitals() {
             data, response, error in
@@ -136,7 +138,6 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         self.filteredHospitals = self.applyFilterModel(self.filterModel, hospitals: self.hospitals)
-                        
                         self.tableView.reloadData()
                     })
                 }
@@ -155,10 +156,50 @@ class ListViewController: UITableViewController,UISearchResultsUpdating {
         tableView.reloadData()
     }
     
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
         
     }
+    
+    
+    
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        sortContent(searchBar.scopeButtonTitles![selectedScope])
+    }
+    
+    func sortContent(scope: String){
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            if scope == "Distance"{
+            textfilteredHospitals = textfilteredHospitals.sort{$0.distanceFromUser < $1.distanceFromUser}
+            }
+            else if scope == "Rating"{
+            textfilteredHospitals = textfilteredHospitals.sort{$0.rating > $1.rating}
+                
+            }
+            
+        }
+        
+        else{
+            if scope == "Distance"{
+                filteredHospitals = filteredHospitals.sort{$0.distanceFromUser < $1.distanceFromUser}
+            }
+            else if scope == "Rating"{
+                filteredHospitals = filteredHospitals.sort{$0.rating > $1.rating}
+                
+            
+            
+            }
+        }
+        
+        self.tableView.reloadData()
+        
+        
+        
+    }
+    
+    
     func applyFilterModel(model:FilterModel,hospitals:[Hospital]) -> [Hospital]{
         
         var outHospitals = [Hospital]()

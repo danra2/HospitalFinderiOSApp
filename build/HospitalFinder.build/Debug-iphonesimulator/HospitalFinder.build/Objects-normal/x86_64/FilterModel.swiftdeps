@@ -6,13 +6,13 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder11FilterModel", ""]
 provides-dynamic-lookup:
-- "distance"
 - "rating"
+- "distance"
 depends-top-level:
-- "FilterModel"
 - "Double"
-- "Float"
 - "NSObject"
+- "Float"
+- "FilterModel"
 depends-member:
 - ["Ps9AnyObject", "distance"]
 - ["Ps9AnyObject", "init"]

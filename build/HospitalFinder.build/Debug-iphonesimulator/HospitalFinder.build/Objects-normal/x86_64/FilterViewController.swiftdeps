@@ -6,21 +6,21 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder20FilterViewController", ""]
 provides-dynamic-lookup:
-- "distanceSliderChanged"
-- "didReceiveMemoryWarning"
-- "consultingFeeSlider"
-- "ratingSliderChanged"
-- "viewWillAppear"
 - "distanceSlider"
+- "didReceiveMemoryWarning"
+- "ratingSliderChanged"
 - "ratingSlider"
-- "viewWillDisappear"
+- "viewWillAppear"
+- "consultingFeeSlider"
 - "viewDidLoad"
+- "viewWillDisappear"
+- "distanceSliderChanged"
 depends-top-level:
+- "FilterViewController"
 - !private "MainTabController"
 - !private "Double"
-- "UISlider"
-- "FilterViewController"
 - "UIViewController"
+- "UISlider"
 - "Bool"
 depends-member:
 - !private ["Ps16AbsoluteValuable", "init"]
