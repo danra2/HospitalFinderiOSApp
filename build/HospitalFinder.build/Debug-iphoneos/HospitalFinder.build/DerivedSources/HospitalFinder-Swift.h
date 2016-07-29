@@ -93,9 +93,10 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 #endif
 #if defined(__has_feature) && __has_feature(modules)
 @import UIKit;
+@import CoreData;
+@import MapKit;
 @import ObjectiveC;
 @import CoreLocation;
-@import MapKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -125,21 +126,65 @@ SWIFT_CLASS("_TtC14HospitalFinder11AppDelegate")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSBundle;
+@class NSEntityDescription;
+
+SWIFT_CLASS("_TtC14HospitalFinder8Bookmark")
+@interface Bookmark : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSNumber;
+@class NSDate;
+
+@interface Bookmark (SWIFT_EXTENSION(HospitalFinder))
+@property (nonatomic, strong) NSNumber * _Nullable bookmarked;
+@property (nonatomic, strong) NSDate * _Nullable date;
+@property (nonatomic, strong) NSNumber * _Nullable id;
+@property (nonatomic, copy) NSString * _Nullable imageUrl;
+@property (nonatomic, copy) NSString * _Nullable location;
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable phoneNumber;
+@property (nonatomic, strong) NSNumber * _Nullable rating;
+@property (nonatomic, copy) NSString * _Nullable website;
+@end
+
+@class NSIndexPath;
+@class UILabel;
+@class UIImageView;
+@class UIButton;
 @class NSCoder;
+
+SWIFT_CLASS("_TtC14HospitalFinder18BookmarkCustomCell")
+@interface BookmarkCustomCell : UITableViewCell
+@property (nonatomic, strong) NSIndexPath * _Nullable indexPath;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bookmarkNameLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified bookmarkLocationLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified bookmarkImageView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified bookmarkWebsiteButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified bookmarkPhoneButton;
+- (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class UITableView;
+@class NSBundle;
 
 SWIFT_CLASS("_TtC14HospitalFinder22BookmarkViewController")
 @interface BookmarkViewController : UITableViewController
-- (void)viewDidLoad;
+@property (nonatomic, copy) NSArray<Bookmark *> * _Nonnull bookmarked;
+@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
+- (void)viewDidAppear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
+- (NSArray<Bookmark *> * _Nonnull)fetchFinishedObjectDB;
+- (void)tableView:(UITableView * _Nonnull)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UIStoryboardSegue;
-@class UIButton;
-@class UILabel;
 
 SWIFT_CLASS("_TtC14HospitalFinder24ChooseCityViewController")
 @interface ChooseCityViewController : UIViewController
@@ -157,17 +202,48 @@ SWIFT_CLASS("_TtC14HospitalFinder24ChooseCityViewController")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class UIImageView;
 
 SWIFT_CLASS("_TtC14HospitalFinder10CustomCell")
 @interface CustomCell : UITableViewCell
+@property (nonatomic, strong) NSIndexPath * _Nullable indexPath;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified locationLabel;
 @property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified hospitialImageView;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified phoneButtonLabel;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified websiteButton;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified ratingLabel;
+- (IBAction)bookmarkButton:(UIButton * _Nonnull)sender;
 - (nonnull instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString * _Nullable)reuseIdentifier OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class Hospital;
+@class LocationManager;
+@class CLLocation;
+@class MKMapView;
+
+SWIFT_CLASS("_TtC14HospitalFinder20DetailViewController")
+@interface DetailViewController : UIViewController <MKMapViewDelegate>
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView * _Null_unspecified imageView;
+@property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified websiteButton;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified phoneButton;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hoursLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionLabel;
+@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified insuranceLabel;
+@property (nonatomic, strong) Hospital * _Nullable receivedHospital;
+@property (nonatomic, strong) LocationManager * _Nullable locationManager;
+@property (nonatomic, strong) CLLocation * _Nullable userLocation;
+- (void)viewDidLoad;
+- (void)displayData;
+- (void)displayAnnotations:(Hospital * _Nonnull)hospital;
+- (void)direction:(Hospital * _Nonnull)hospital;
+- (void)zoomToRegion:(Hospital * _Nonnull)hospital;
+- (IBAction)directionButtonPressed:(UIButton * _Nonnull)sender;
+- (IBAction)websiteButtonPressed:(UIButton * _Nonnull)sender;
+- (IBAction)phoneButtonPressed:(UIButton * _Nonnull)sender;
+- (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -176,26 +252,30 @@ SWIFT_CLASS("_TtC14HospitalFinder11FilterModel")
 @interface FilterModel : NSObject
 @property (nonatomic) double distance;
 @property (nonatomic) float rating;
+@property (nonatomic) double consultingFee;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @class UISlider;
 
 SWIFT_CLASS("_TtC14HospitalFinder20FilterViewController")
-@interface FilterViewController : UIViewController
+@interface FilterViewController : UITableViewController
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified consultingFeeSlider;
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified distanceSlider;
 @property (nonatomic, weak) IBOutlet UISlider * _Null_unspecified ratingSlider;
 - (void)viewDidLoad;
 - (void)viewWillAppear:(BOOL)animated;
+- (IBAction)consultingFeeChanged:(UISlider * _Nonnull)sender;
 - (IBAction)ratingSliderChanged:(UISlider * _Nonnull)sender;
 - (IBAction)distanceSliderChanged:(UISlider * _Nonnull)sender;
 - (void)viewWillDisappear:(BOOL)animated;
 - (void)didReceiveMemoryWarning;
+- (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSArray;
 @class UIImage;
 @class NSData;
 @class NSURLResponse;
@@ -208,8 +288,13 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @property (nonatomic, copy) NSString * _Nonnull location;
 @property (nonatomic) double latitude;
 @property (nonatomic) double longitude;
+@property (nonatomic, copy) NSString * _Nonnull startTime;
+@property (nonatomic, copy) NSString * _Nonnull endTime;
+@property (nonatomic) double consultingFee;
 @property (nonatomic, copy) NSString * _Nonnull phoneNumber;
 @property (nonatomic, copy) NSString * _Nonnull website;
+@property (nonatomic, strong) NSArray * _Nonnull insurance;
+@property (nonatomic, copy) NSString * _Nonnull descript;
 @property (nonatomic) float rating;
 @property (nonatomic, copy) NSString * _Nullable imageUrl;
 @property (nonatomic, strong) UIImage * _Nullable image;
@@ -219,14 +304,11 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @end
 
 @class UISearchController;
-@class LocationManager;
-@class CLLocation;
-@class UITableView;
-@class NSIndexPath;
 @class UISearchBar;
 
 SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
-@interface ListViewController : UITableViewController <UIBarPositioningDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface ListViewController : UITableViewController <UIBarPositioningDelegate, UISearchResultsUpdating, UISearchBarDelegate>
+@property (nonatomic, copy) NSArray<Bookmark *> * _Nonnull bookMark;
 @property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
 @property (nonatomic, copy) NSString * _Nullable toPass;
 @property (nonatomic, strong) FilterModel * _Nonnull filterModel;
@@ -235,6 +317,7 @@ SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
 @property (nonatomic, readonly, strong) UISearchController * _Nonnull searchController;
 @property (nonatomic, strong) LocationManager * _Nullable locationManager;
 @property (nonatomic, strong) CLLocation * _Nullable userLocation;
+@property (nonatomic, readonly, strong) NSManagedObjectContext * _Nonnull managedObjectContext;
 - (void)viewDidLoad;
 - (UIStatusBarStyle)preferredStatusBarStyle;
 - (void)viewWillAppear:(BOOL)animated;
@@ -243,11 +326,17 @@ SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
 - (void)getAllHospitals;
 - (void)filterContentForSearchText:(NSString * _Nonnull)searchText scope:(NSString * _Nonnull)scope;
 - (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
+- (NSArray<Hospital *> * _Nonnull)applyFilterModel:(FilterModel * _Nonnull)model hospitals:(NSArray<Hospital *> * _Nonnull)hospitals;
 - (void)searchBar:(UISearchBar * _Nonnull)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope;
 - (void)sortContent:(NSString * _Nonnull)scope;
-- (NSArray<Hospital *> * _Nonnull)applyFilterModel:(FilterModel * _Nonnull)model hospitals:(NSArray<Hospital *> * _Nonnull)hospitals;
 - (IBAction)websiteButtonPressed:(UIButton * _Nonnull)sender;
 - (IBAction)phoneButtonPressed:(UIButton * _Nonnull)sender;
+- (void)bookmarkWasPressed:(CustomCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)fetchingDB;
+
+/// / Yung's code ///
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithStyle:(UITableViewStyle)style OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
@@ -264,7 +353,6 @@ SWIFT_CLASS("_TtC14HospitalFinder15LocationManager")
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @end
 
-@class MKMapView;
 @class MKAnnotationView;
 
 SWIFT_CLASS("_TtC14HospitalFinder22LocationViewController")
@@ -272,22 +360,23 @@ SWIFT_CLASS("_TtC14HospitalFinder22LocationViewController")
 @property (nonatomic, strong) CLLocationManager * _Null_unspecified locationManager;
 @property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hoursTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hoursDescriptionLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionLabel;
+@property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified detailButton;
 @property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
+@property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospital;
+@property (nonatomic, strong) MKAnnotationView * _Nonnull selectedAnnotation;
 - (void)viewDidLoad;
 - (void)fullScreenMap;
 - (void)mapView:(MKMapView * _Nonnull)mapView didSelectAnnotationView:(MKAnnotationView * _Nonnull)view;
 - (void)mapView:(MKMapView * _Nonnull)mapView didDeselectAnnotationView:(MKAnnotationView * _Nonnull)view;
-- (void)direction;
 - (void)didReceiveMemoryWarning;
-- (IBAction)directionButton:(UIButton * _Nonnull)sender;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
 - (void)displayAnnotations:(Hospital * _Nonnull)hospital;
 - (void)zoomToRegion:(double)lat long:(double)long_;
 - (void)getAllHospitals;
+- (void)getHospitalByLocation:(NSString * _Nonnull)location;
+- (IBAction)currentLocationButtonPressed:(UIButton * _Nonnull)sender;
+- (IBAction)detailButtonPressed:(UIButton * _Nonnull)sender;
+- (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Nullable)sender;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

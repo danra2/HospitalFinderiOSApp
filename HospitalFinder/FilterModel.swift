@@ -13,12 +13,14 @@ class FilterModel: NSObject {
     
     var distance:Double
     var rating:Float
+    var consultingFee:Double
 
 
     
     override init(){
         distance = 100000
         rating = 0.00
+        consultingFee = 100000
     }
     
 

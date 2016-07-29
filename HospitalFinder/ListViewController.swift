@@ -10,8 +10,9 @@ import UIKit
 import CoreData
 import CoreLocation
 
-class ListViewController: UITableViewController,UISearchResultsUpdating,UISearchBarDelegate {
+class ListViewController: UITableViewController,UISearchResultsUpdating,UISearchBarDelegate, BookmarkButtonDelegate {
     
+    var bookMark: [Bookmark] = []
     var hospitals = [Hospital]()
     var toPass: String?
     var filterModel = FilterModel()
@@ -20,9 +21,11 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     let searchController = UISearchController(searchResultsController: nil)
     var locationManager:LocationManager?
     var userLocation:CLLocation?
+    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
         UITabBar.appearance().barTintColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.locationManager = LocationManager()
@@ -41,7 +44,9 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         self.searchController.searchBar.backgroundColor = UIColor.whiteColor()
+       
         return UIStatusBarStyle.LightContent
+
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,12 +56,23 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.scopeButtonTitles = ["Rating", "Distance"]
+        searchController.searchBar.scopeButtonTitles = ["Rating", "Distance","ConsultingFee"]
         searchController.searchBar.delegate = self
+
+        // dumb hack to change textField color.
+        for subview in self.searchController.searchBar.subviews{
+            for secondlevelView in subview.subviews{
+                if secondlevelView.isKindOfClass(UITextField){
+                    (secondlevelView as! UITextField).textColor = UIColor.whiteColor()
+                }
+            }
+        }
+        
         
         print(filterModel.distance)
         print(filterModel.rating)
         filteredHospitals = applyFilterModel(self.filterModel, hospitals: hospitals)
+        
         tableView.reloadData()
         
         
@@ -79,11 +95,14 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
             cell.hospitialImageView.image = myImage
         }
         
+        cell.indexPath = indexPath
+        cell.hospitalIDcell = hospital.id
+        cell.delegate = self
         
         cell.nameLabel.text = "\(hospital.name)"
         cell.locationLabel.text = "\(hospital.location)"
         cell.phoneButtonLabel.setTitle(hospital.phoneNumber, forState: .Normal)
-        cell.websiteButton.setTitle(hospital.website, forState: .Normal)
+//        cell.websiteButton.setTitle(hospital.website, forState: .Normal)
         cell.ratingLabel.text = "Rating: \(hospital.rating)"
         
         // return cell so that Table View knows what to draw in each row
@@ -98,7 +117,6 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     
     
     func getAllHospitals() {
-        hospitals = [Hospital]()
         print("> getAllHospitals()")
         Hospital.getAllHospitals() {
             data, response, error in
@@ -113,16 +131,51 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
                         newHospital.name = "\(result.valueForKey("name")!)"
                         //newHospital.name = "\(result.valueForKey("name")!)"
                         newHospital.location = "\(result.valueForKey("location")!)"
+                        newHospital.latitude = (result.valueForKey("latitude") as? Double)!
+                        newHospital.longitude = (result.valueForKey("longitude") as? Double)!
                         newHospital.phoneNumber = (result.valueForKey("phone") as? String)!
+                        newHospital.website = (result.valueForKey("website") as? String)!
+                        newHospital.descript = (result.valueForKey("description") as? String)!
+                        newHospital.consultingFee =  (result.valueForKey("consultingFee") as? Double)!
                         newHospital.rating = (result.valueForKey("rating") as? Float)!
                         newHospital.imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String)
+                        newHospital.insurance = (result.valueForKey("insurances")!) as! NSArray
+                        
+                        let startTime = (result.valueForKey("startTime") as? String)!
+                        let startIndex1 = startTime.startIndex.advancedBy(11)
+                        let endIndex1 = startTime.endIndex.advancedBy(-8)
+                        let substring1 = startTime[Range(startIndex1 ..< endIndex1)]
+                        newHospital.startTime = substring1
+                        
+                        let endTime = (result.valueForKey("endTime") as? String)!
+                        let startIndex2 = endTime.startIndex.advancedBy(11)
+                        let endIndex2 = endTime.endIndex.advancedBy(-8)
+                        let substring2 = endTime[Range(startIndex2 ..< endIndex2)]
+                        newHospital.endTime = substring2
+                        
                         // do not add image if image URL does not exist
                         if let imageUrl = (result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String) {
                             newHospital.image =  UIImage(data: NSData(contentsOfURL: NSURL(string:imageUrl)!)!)
-                            
-                            
-                            
+                        
+                        let newitem = NSEntityDescription.insertNewObjectForEntityForName("Bookmark", inManagedObjectContext: self.managedObjectContext) as! Bookmark
+                        newitem.id = result.valueForKey("id") as! Int
+                        newitem.name = result.valueForKey("name") as? String
+                        newitem.location = result.valueForKey("location") as? String
+                        newitem.phoneNumber = result.valueForKey("phone") as? String
+                        newitem.rating = result.valueForKey("rating") as? Float
+                        newitem.imageUrl = result.valueForKey("images")?.firstObject??.valueForKey("url")! as? String
+                        newitem.website = result.valueForKey("website") as? String
+                        newitem.bookmarked = 0
+                        
+                        do{
+                            try self.managedObjectContext.save()
+                        } catch {
+                            print("couldn't save")
                         }
+                        self.tableView.reloadData()
+                        print(newitem)
+                        
+                    }
                         
                         if self.userLocation != nil{
                             
@@ -138,6 +191,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
                     
                     dispatch_async(dispatch_get_main_queue(), {
                         self.filteredHospitals = self.applyFilterModel(self.filterModel, hospitals: self.hospitals)
+                        
                         self.tableView.reloadData()
                     })
                 }
@@ -156,12 +210,21 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
         tableView.reloadData()
     }
     
-    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
         
     }
-    
+    func applyFilterModel(model:FilterModel,hospitals:[Hospital]) -> [Hospital]{
+        
+        var outHospitals = [Hospital]()
+        
+        outHospitals = hospitals.filter { hospital in
+            return hospital.rating > model.rating && (hospital.distanceFromUser as Double) < model.distance && (hospital.consultingFee as Double) < model.consultingFee
+        }
+        
+        return outHospitals
+        
+    }
     
     
     func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
@@ -172,15 +235,19 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
         
         if searchController.active && searchController.searchBar.text != "" {
             if scope == "Distance"{
-            textfilteredHospitals = textfilteredHospitals.sort{$0.distanceFromUser < $1.distanceFromUser}
+                textfilteredHospitals = textfilteredHospitals.sort{$0.distanceFromUser < $1.distanceFromUser}
             }
             else if scope == "Rating"{
-            textfilteredHospitals = textfilteredHospitals.sort{$0.rating > $1.rating}
+                textfilteredHospitals = textfilteredHospitals.sort{$0.rating > $1.rating}
                 
+            }
+            else if scope == "ConsultingFee"{
+                textfilteredHospitals = textfilteredHospitals.sort{$0.consultingFee < $1.consultingFee}
+
             }
             
         }
-        
+            
         else{
             if scope == "Distance"{
                 filteredHospitals = filteredHospitals.sort{$0.distanceFromUser < $1.distanceFromUser}
@@ -188,8 +255,10 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
             else if scope == "Rating"{
                 filteredHospitals = filteredHospitals.sort{$0.rating > $1.rating}
                 
-            
-            
+            }
+            else if scope == "ConsultingFee"{
+                textfilteredHospitals = textfilteredHospitals.sort{$0.consultingFee < $1.consultingFee}
+                
             }
         }
         
@@ -200,18 +269,6 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     }
     
     
-    func applyFilterModel(model:FilterModel,hospitals:[Hospital]) -> [Hospital]{
-        
-        var outHospitals = [Hospital]()
-        
-        outHospitals = hospitals.filter { hospital in
-            return hospital.rating > model.rating && (hospital.distanceFromUser as Double) < model.distance
-        }
-        
-        return outHospitals
-        
-    }
-    
     @IBAction func websiteButtonPressed(sender: UIButton) {
         let urlFromButton = sender.currentTitle!
         UIApplication.sharedApplication().openURL(NSURL(string: urlFromButton)!)
@@ -221,5 +278,43 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
         let numberFromButton = sender.currentTitle!
         UIApplication.sharedApplication().openURL(NSURL(string: numberFromButton)!)
     }
+    func bookmarkWasPressed(cell: CustomCell, atIndexPath indexPath: NSIndexPath) {
+        fetchingDB()
+        bookMark[indexPath.row].bookmarked = 1
+        bookMark[indexPath.row].date = NSDate()
+        do{
+            try self.managedObjectContext.save()
+        } catch {
+            print("couldn't save")
+        }
+        print(bookMark[indexPath.row].bookmarked)
+        self.tableView.reloadData()
+        print("data saved")
+        
+        
+    }
     
+    func fetchingDB() {
+        let request = NSFetchRequest(entityName: "Bookmark")
+        bookMark = []
+        do {
+            let response = try managedObjectContext.executeFetchRequest(request) as! [Bookmark]
+            for item in response {
+                bookMark.append(item)
+            }
+        } catch {
+            print("cannot fetch")
+        }
+    }
+    //// Yung's code ///
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(filteredHospitals[indexPath.row].id)
+        print(filteredHospitals[indexPath.row].name)
+        performSegueWithIdentifier("toDetail", sender: indexPath.row)
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as! DetailViewController
+        destination.receivedHospital = filteredHospitals[sender as! Int]
+    }
+    ///////////////////
 }

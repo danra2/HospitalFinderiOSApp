@@ -8,29 +8,29 @@ provides-member:
 provides-dynamic-lookup:
 - "bellevueButton"
 - "cityNameLabel"
-- "bellevueButtonPressed"
-- "seattleButtonPressed"
-- "didReceiveMemoryWarning"
-- "prepareForSegue"
 - "preferredStatusBarStyle"
-- "viewDidLoad"
 - "seattleButton"
+- "prepareForSegue"
+- "bellevueButtonPressed"
+- "didReceiveMemoryWarning"
+- "seattleButtonPressed"
 - "goButton"
+- "viewDidLoad"
 depends-top-level:
-- "UILabel"
-- !private "print"
-- "UIStatusBarStyle"
-- !private "StringLiteralType"
-- "UIButton"
-- "ChooseCityViewController"
-- "AnyObject"
 - !private "=="
-- !private "BooleanLiteralType"
 - !private "UITabBarController"
-- !private "MainTabController"
-- "UIStoryboardSegue"
 - !private "ListViewController"
+- !private "StringLiteralType"
 - "UIViewController"
+- !private "MainTabController"
+- "UIButton"
+- "UIStoryboardSegue"
+- "ChooseCityViewController"
+- !private "print"
+- "UILabel"
+- "AnyObject"
+- "UIStatusBarStyle"
+- !private "BooleanLiteralType"
 depends-member:
 - !private ["Ps9AnyObject", "UIStatusBarStyle"]
 - ["Ps9AnyObject", "bellevueButton"]
@@ -70,6 +70,7 @@ depends-member:
 - !private ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
 - !private ["Ps21BitwiseOperationsType", "Distance"]
 - !private ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["P14HospitalFinder22BookmarkButtonDelegate", "toPass"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
@@ -609,6 +610,7 @@ depends-nominal:
 - !private "Vs10ArraySlice"
 - !private "Ps22BidirectionalIndexType"
 - !private "Ps21BitwiseOperationsType"
+- !private "P14HospitalFinder22BookmarkButtonDelegate"
 - !private "Sb"
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
