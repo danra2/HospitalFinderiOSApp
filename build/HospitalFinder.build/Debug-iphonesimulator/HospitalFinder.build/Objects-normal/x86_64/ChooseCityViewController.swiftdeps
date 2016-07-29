@@ -6,30 +6,33 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder24ChooseCityViewController", ""]
 provides-dynamic-lookup:
-- "prepareForSegue"
-- "goButton"
-- "seattleButton"
-- "bellevueButtonPressed"
 - "cityNameLabel"
-- "viewDidLoad"
-- "didReceiveMemoryWarning"
+- "preferredStatusBarStyle"
 - "seattleButtonPressed"
+- "bellevueButtonPressed"
+- "viewDidLoad"
+- "seattleButton"
+- "didReceiveMemoryWarning"
+- "prepareForSegue"
 - "bellevueButton"
+- "goButton"
 depends-top-level:
+- !private "print"
+- "UIViewController"
+- !private "=="
+- "AnyObject"
+- "UIButton"
+- "ChooseCityViewController"
 - !private "StringLiteralType"
 - !private "MainTabController"
-- "UIViewController"
-- !private "print"
-- "UIButton"
-- !private "=="
-- "ChooseCityViewController"
-- "AnyObject"
+- !private "UITabBarController"
 - "UIStoryboardSegue"
 - !private "ListViewController"
-- !private "BooleanLiteralType"
-- !private "UITabBarController"
 - "UILabel"
+- !private "BooleanLiteralType"
+- "UIStatusBarStyle"
 depends-member:
+- !private ["Ps9AnyObject", "UIStatusBarStyle"]
 - ["Ps9AnyObject", "bellevueButton"]
 - ["Ps9AnyObject", "bellevueButtonPressed"]
 - ["Ps9AnyObject", "cityNameLabel"]
@@ -40,6 +43,7 @@ depends-member:
 - !private ["Ps9AnyObject", "hidden"]
 - !private ["Ps9AnyObject", "identifier"]
 - ["Ps9AnyObject", "init"]
+- ["Ps9AnyObject", "preferredStatusBarStyle"]
 - ["Ps9AnyObject", "prepareForSegue"]
 - !private ["Ps9AnyObject", "print"]
 - ["Ps9AnyObject", "seattleButton"]
@@ -66,11 +70,13 @@ depends-member:
 - !private ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
 - !private ["Ps21BitwiseOperationsType", "Distance"]
 - !private ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["P14HospitalFinder22BookmarkButtonDelegate", "toPass"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
 - !private ["Ps11CVarArgType", "Distance"]
 - !private ["Ps11CVarArgType", "IntegerLiteralType"]
+- !private ["Ps11CVarArgType", "UIStatusBarStyle"]
 - ["Ps11CVarArgType", "bellevueButton"]
 - ["Ps11CVarArgType", "bellevueButtonPressed"]
 - ["Ps11CVarArgType", "cityNameLabel"]
@@ -81,6 +87,7 @@ depends-member:
 - !private ["Ps11CVarArgType", "hidden"]
 - !private ["Ps11CVarArgType", "identifier"]
 - ["Ps11CVarArgType", "init"]
+- ["Ps11CVarArgType", "preferredStatusBarStyle"]
 - ["Ps11CVarArgType", "prepareForSegue"]
 - !private ["Ps11CVarArgType", "print"]
 - ["Ps11CVarArgType", "seattleButton"]
@@ -96,6 +103,7 @@ depends-member:
 - !private ["C14HospitalFinder24ChooseCityViewController", "MainTabController"]
 - ["C14HospitalFinder24ChooseCityViewController", "UIButton"]
 - ["C14HospitalFinder24ChooseCityViewController", "UILabel"]
+- ["C14HospitalFinder24ChooseCityViewController", "UIStatusBarStyle"]
 - ["C14HospitalFinder24ChooseCityViewController", "UIStoryboardSegue"]
 - !private ["C14HospitalFinder24ChooseCityViewController", "UITabBarController"]
 - ["C14HospitalFinder24ChooseCityViewController", "bellevueButton"]
@@ -105,6 +113,7 @@ depends-member:
 - ["C14HospitalFinder24ChooseCityViewController", "didReceiveMemoryWarning"]
 - ["C14HospitalFinder24ChooseCityViewController", "goButton"]
 - ["C14HospitalFinder24ChooseCityViewController", "init"]
+- ["C14HospitalFinder24ChooseCityViewController", "preferredStatusBarStyle"]
 - ["C14HospitalFinder24ChooseCityViewController", "prepareForSegue"]
 - !private ["C14HospitalFinder24ChooseCityViewController", "print"]
 - ["C14HospitalFinder24ChooseCityViewController", "seattleButton"]
@@ -120,6 +129,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "Generator"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
+- !private ["Ps28CustomDebugStringConvertible", "UIStatusBarStyle"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - ["Ps28CustomDebugStringConvertible", "bellevueButton"]
 - ["Ps28CustomDebugStringConvertible", "bellevueButtonPressed"]
@@ -132,6 +142,7 @@ depends-member:
 - !private ["Ps28CustomDebugStringConvertible", "hidden"]
 - !private ["Ps28CustomDebugStringConvertible", "identifier"]
 - ["Ps28CustomDebugStringConvertible", "init"]
+- ["Ps28CustomDebugStringConvertible", "preferredStatusBarStyle"]
 - ["Ps28CustomDebugStringConvertible", "prepareForSegue"]
 - !private ["Ps28CustomDebugStringConvertible", "print"]
 - ["Ps28CustomDebugStringConvertible", "seattleButton"]
@@ -147,6 +158,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
+- !private ["Ps23CustomStringConvertible", "UIStatusBarStyle"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
 - ["Ps23CustomStringConvertible", "bellevueButton"]
@@ -160,6 +172,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "hidden"]
 - !private ["Ps23CustomStringConvertible", "identifier"]
 - ["Ps23CustomStringConvertible", "init"]
+- ["Ps23CustomStringConvertible", "preferredStatusBarStyle"]
 - ["Ps23CustomStringConvertible", "prepareForSegue"]
 - !private ["Ps23CustomStringConvertible", "print"]
 - ["Ps23CustomStringConvertible", "seattleButton"]
@@ -172,6 +185,8 @@ depends-member:
 - ["Ps23CustomStringConvertible", ""]
 - !private ["Ps9Equatable", "Distance"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "LightContent"]
+- !private ["Ps9Equatable", "UIStatusBarStyle"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - ["Ps9Equatable", "bellevueButton"]
 - ["Ps9Equatable", "bellevueButtonPressed"]
@@ -183,6 +198,7 @@ depends-member:
 - !private ["Ps9Equatable", "hidden"]
 - !private ["Ps9Equatable", "identifier"]
 - ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "preferredStatusBarStyle"]
 - ["Ps9Equatable", "prepareForSegue"]
 - !private ["Ps9Equatable", "print"]
 - ["Ps9Equatable", "seattleButton"]
@@ -198,6 +214,8 @@ depends-member:
 - !private ["Ps13GeneratorType", "Element"]
 - !private ["Ps8Hashable", "Distance"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "LightContent"]
+- !private ["Ps8Hashable", "UIStatusBarStyle"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - ["Ps8Hashable", "bellevueButton"]
 - ["Ps8Hashable", "bellevueButtonPressed"]
@@ -209,6 +227,7 @@ depends-member:
 - !private ["Ps8Hashable", "hidden"]
 - !private ["Ps8Hashable", "identifier"]
 - ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "preferredStatusBarStyle"]
 - ["Ps8Hashable", "prepareForSegue"]
 - !private ["Ps8Hashable", "print"]
 - ["Ps8Hashable", "seattleButton"]
@@ -251,6 +270,7 @@ depends-member:
 - !private ["Ps16MutableSliceable", "SubSequence"]
 - !private ["Ps16MutableSliceable", "_Element"]
 - !private ["Ps16MutableSliceable", "first"]
+- !private ["PSo8NSCoding", "UIStatusBarStyle"]
 - ["PSo8NSCoding", "bellevueButton"]
 - ["PSo8NSCoding", "bellevueButtonPressed"]
 - ["PSo8NSCoding", "cityNameLabel"]
@@ -259,6 +279,7 @@ depends-member:
 - ["PSo8NSCoding", "goButton"]
 - !private ["PSo8NSCoding", "hidden"]
 - ["PSo8NSCoding", "init"]
+- ["PSo8NSCoding", "preferredStatusBarStyle"]
 - ["PSo8NSCoding", "prepareForSegue"]
 - !private ["PSo8NSCoding", "print"]
 - ["PSo8NSCoding", "seattleButton"]
@@ -269,12 +290,14 @@ depends-member:
 - !private ["PSo8NSCoding", "viewControllers"]
 - ["PSo8NSCoding", "viewDidLoad"]
 - ["PSo8NSCoding", ""]
+- !private ["PSo26NSExtensionRequestHandling", "UIStatusBarStyle"]
 - ["PSo26NSExtensionRequestHandling", "bellevueButton"]
 - ["PSo26NSExtensionRequestHandling", "bellevueButtonPressed"]
 - ["PSo26NSExtensionRequestHandling", "cityNameLabel"]
 - ["PSo26NSExtensionRequestHandling", "didReceiveMemoryWarning"]
 - ["PSo26NSExtensionRequestHandling", "goButton"]
 - ["PSo26NSExtensionRequestHandling", "init"]
+- ["PSo26NSExtensionRequestHandling", "preferredStatusBarStyle"]
 - ["PSo26NSExtensionRequestHandling", "prepareForSegue"]
 - !private ["PSo26NSExtensionRequestHandling", "print"]
 - ["PSo26NSExtensionRequestHandling", "seattleButton"]
@@ -288,6 +311,7 @@ depends-member:
 - !private ["CSo8NSObject", "MainTabController"]
 - ["CSo8NSObject", "UIButton"]
 - ["CSo8NSObject", "UILabel"]
+- ["CSo8NSObject", "UIStatusBarStyle"]
 - ["CSo8NSObject", "UIStoryboardSegue"]
 - !private ["CSo8NSObject", "UITabBarController"]
 - ["CSo8NSObject", "bellevueButton"]
@@ -300,6 +324,7 @@ depends-member:
 - !private ["CSo8NSObject", "hidden"]
 - !private ["CSo8NSObject", "identifier"]
 - ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "preferredStatusBarStyle"]
 - ["CSo8NSObject", "prepareForSegue"]
 - !private ["CSo8NSObject", "print"]
 - ["CSo8NSObject", "seattleButton"]
@@ -309,6 +334,7 @@ depends-member:
 - !private ["CSo8NSObject", "toPass"]
 - !private ["CSo8NSObject", "viewControllers"]
 - ["CSo8NSObject", "viewDidLoad"]
+- !private ["PSo16NSObjectProtocol", "UIStatusBarStyle"]
 - ["PSo16NSObjectProtocol", "bellevueButton"]
 - ["PSo16NSObjectProtocol", "bellevueButtonPressed"]
 - ["PSo16NSObjectProtocol", "cityNameLabel"]
@@ -319,6 +345,7 @@ depends-member:
 - !private ["PSo16NSObjectProtocol", "hidden"]
 - !private ["PSo16NSObjectProtocol", "identifier"]
 - ["PSo16NSObjectProtocol", "init"]
+- ["PSo16NSObjectProtocol", "preferredStatusBarStyle"]
 - ["PSo16NSObjectProtocol", "prepareForSegue"]
 - !private ["PSo16NSObjectProtocol", "print"]
 - ["PSo16NSObjectProtocol", "seattleButton"]
@@ -337,6 +364,7 @@ depends-member:
 - !private ["Ps30RangeReplaceableCollectionType", "SubSequence"]
 - !private ["Ps30RangeReplaceableCollectionType", "_Element"]
 - !private ["Ps30RangeReplaceableCollectionType", "first"]
+- !private ["Ps16RawRepresentable", "LightContent"]
 - !private ["Ps12SequenceType", "Element"]
 - !private ["Ps12SequenceType", "Generator"]
 - !private ["Ps12SequenceType", "Index"]
@@ -357,6 +385,7 @@ depends-member:
 - !private ["PSo12UIAppearance", "hidden"]
 - !private ["PSo12UIAppearance", "tag"]
 - !private ["PSo12UIAppearance", "text"]
+- !private ["PSo21UIAppearanceContainer", "UIStatusBarStyle"]
 - ["PSo21UIAppearanceContainer", "bellevueButton"]
 - ["PSo21UIAppearanceContainer", "bellevueButtonPressed"]
 - ["PSo21UIAppearanceContainer", "cityNameLabel"]
@@ -365,6 +394,7 @@ depends-member:
 - ["PSo21UIAppearanceContainer", "goButton"]
 - !private ["PSo21UIAppearanceContainer", "hidden"]
 - ["PSo21UIAppearanceContainer", "init"]
+- ["PSo21UIAppearanceContainer", "preferredStatusBarStyle"]
 - ["PSo21UIAppearanceContainer", "prepareForSegue"]
 - !private ["PSo21UIAppearanceContainer", "print"]
 - ["PSo21UIAppearanceContainer", "seattleButton"]
@@ -375,15 +405,18 @@ depends-member:
 - !private ["PSo21UIAppearanceContainer", "viewControllers"]
 - ["PSo21UIAppearanceContainer", "viewDidLoad"]
 - ["PSo21UIAppearanceContainer", ""]
+- !private ["PSo24UIBarPositioningDelegate", "toPass"]
 - !private ["CSo8UIButton", "currentTitle"]
 - !private ["CSo8UIButton", "hidden"]
 - !private ["CSo8UIButton", "tag"]
+- !private ["PSo18UIContentContainer", "UIStatusBarStyle"]
 - ["PSo18UIContentContainer", "bellevueButton"]
 - ["PSo18UIContentContainer", "bellevueButtonPressed"]
 - ["PSo18UIContentContainer", "cityNameLabel"]
 - ["PSo18UIContentContainer", "didReceiveMemoryWarning"]
 - ["PSo18UIContentContainer", "goButton"]
 - ["PSo18UIContentContainer", "init"]
+- ["PSo18UIContentContainer", "preferredStatusBarStyle"]
 - ["PSo18UIContentContainer", "prepareForSegue"]
 - !private ["PSo18UIContentContainer", "print"]
 - ["PSo18UIContentContainer", "seattleButton"]
@@ -403,6 +436,7 @@ depends-member:
 - !private ["PSo13UIDynamicItem", "hidden"]
 - !private ["PSo13UIDynamicItem", "tag"]
 - !private ["PSo13UIDynamicItem", "text"]
+- !private ["PSo18UIFocusEnvironment", "UIStatusBarStyle"]
 - ["PSo18UIFocusEnvironment", "bellevueButton"]
 - ["PSo18UIFocusEnvironment", "bellevueButtonPressed"]
 - ["PSo18UIFocusEnvironment", "cityNameLabel"]
@@ -411,6 +445,7 @@ depends-member:
 - ["PSo18UIFocusEnvironment", "goButton"]
 - !private ["PSo18UIFocusEnvironment", "hidden"]
 - ["PSo18UIFocusEnvironment", "init"]
+- ["PSo18UIFocusEnvironment", "preferredStatusBarStyle"]
 - ["PSo18UIFocusEnvironment", "prepareForSegue"]
 - !private ["PSo18UIFocusEnvironment", "print"]
 - ["PSo18UIFocusEnvironment", "seattleButton"]
@@ -421,12 +456,14 @@ depends-member:
 - !private ["PSo18UIFocusEnvironment", "viewControllers"]
 - ["PSo18UIFocusEnvironment", "viewDidLoad"]
 - ["PSo18UIFocusEnvironment", ""]
+- !private ["CSo7UILabel", "hidden"]
 - !private ["CSo7UILabel", "text"]
 - ["CSo11UIResponder", "AnyObject"]
 - !private ["CSo11UIResponder", "ListViewController"]
 - !private ["CSo11UIResponder", "MainTabController"]
 - ["CSo11UIResponder", "UIButton"]
 - ["CSo11UIResponder", "UILabel"]
+- ["CSo11UIResponder", "UIStatusBarStyle"]
 - ["CSo11UIResponder", "UIStoryboardSegue"]
 - !private ["CSo11UIResponder", "UITabBarController"]
 - ["CSo11UIResponder", "bellevueButton"]
@@ -437,6 +474,7 @@ depends-member:
 - ["CSo11UIResponder", "goButton"]
 - !private ["CSo11UIResponder", "hidden"]
 - ["CSo11UIResponder", "init"]
+- ["CSo11UIResponder", "preferredStatusBarStyle"]
 - ["CSo11UIResponder", "prepareForSegue"]
 - !private ["CSo11UIResponder", "print"]
 - ["CSo11UIResponder", "seattleButton"]
@@ -447,13 +485,16 @@ depends-member:
 - !private ["CSo11UIResponder", "viewControllers"]
 - ["CSo11UIResponder", "viewDidLoad"]
 - !private ["PSo20UIScrollViewDelegate", "toPass"]
+- !private ["PSo19UISearchBarDelegate", "toPass"]
 - !private ["PSo23UISearchResultsUpdating", "toPass"]
+- !private ["PSo16UIStateRestoring", "UIStatusBarStyle"]
 - ["PSo16UIStateRestoring", "bellevueButton"]
 - ["PSo16UIStateRestoring", "bellevueButtonPressed"]
 - ["PSo16UIStateRestoring", "cityNameLabel"]
 - ["PSo16UIStateRestoring", "didReceiveMemoryWarning"]
 - ["PSo16UIStateRestoring", "goButton"]
 - ["PSo16UIStateRestoring", "init"]
+- ["PSo16UIStateRestoring", "preferredStatusBarStyle"]
 - ["PSo16UIStateRestoring", "prepareForSegue"]
 - !private ["PSo16UIStateRestoring", "print"]
 - ["PSo16UIStateRestoring", "seattleButton"]
@@ -462,6 +503,7 @@ depends-member:
 - !private ["PSo16UIStateRestoring", "viewControllers"]
 - ["PSo16UIStateRestoring", "viewDidLoad"]
 - ["PSo16UIStateRestoring", ""]
+- !private ["OSC16UIStatusBarStyle", "LightContent"]
 - !private ["CSo17UIStoryboardSegue", "destinationViewController"]
 - !private ["CSo17UIStoryboardSegue", "identifier"]
 - !private ["CSo18UITabBarController", "viewControllers"]
@@ -469,6 +511,7 @@ depends-member:
 - !private ["CSo21UITableViewController", "toPass"]
 - !private ["PSo21UITableViewDataSource", "toPass"]
 - !private ["PSo19UITableViewDelegate", "toPass"]
+- !private ["PSo18UITraitEnvironment", "UIStatusBarStyle"]
 - ["PSo18UITraitEnvironment", "bellevueButton"]
 - ["PSo18UITraitEnvironment", "bellevueButtonPressed"]
 - ["PSo18UITraitEnvironment", "cityNameLabel"]
@@ -477,6 +520,7 @@ depends-member:
 - ["PSo18UITraitEnvironment", "goButton"]
 - !private ["PSo18UITraitEnvironment", "hidden"]
 - ["PSo18UITraitEnvironment", "init"]
+- ["PSo18UITraitEnvironment", "preferredStatusBarStyle"]
 - ["PSo18UITraitEnvironment", "prepareForSegue"]
 - !private ["PSo18UITraitEnvironment", "print"]
 - ["PSo18UITraitEnvironment", "seattleButton"]
@@ -496,6 +540,7 @@ depends-member:
 - !private ["CSo16UIViewController", "MainTabController"]
 - ["CSo16UIViewController", "UIButton"]
 - ["CSo16UIViewController", "UILabel"]
+- ["CSo16UIViewController", "UIStatusBarStyle"]
 - ["CSo16UIViewController", "UIStoryboardSegue"]
 - !private ["CSo16UIViewController", "UITabBarController"]
 - ["CSo16UIViewController", "bellevueButton"]
@@ -505,6 +550,7 @@ depends-member:
 - ["CSo16UIViewController", "didReceiveMemoryWarning"]
 - ["CSo16UIViewController", "goButton"]
 - ["CSo16UIViewController", "init"]
+- ["CSo16UIViewController", "preferredStatusBarStyle"]
 - ["CSo16UIViewController", "prepareForSegue"]
 - !private ["CSo16UIViewController", "print"]
 - ["CSo16UIViewController", "seattleButton"]
@@ -564,6 +610,7 @@ depends-nominal:
 - !private "Vs10ArraySlice"
 - !private "Ps22BidirectionalIndexType"
 - !private "Ps21BitwiseOperationsType"
+- !private "P14HospitalFinder22BookmarkButtonDelegate"
 - !private "Sb"
 - !private "Ps25BooleanLiteralConvertible"
 - !private "Ps11BooleanType"
@@ -595,6 +642,7 @@ depends-nominal:
 - !private "Sq"
 - !private "Ps21RandomAccessIndexType"
 - !private "Ps30RangeReplaceableCollectionType"
+- !private "Ps16RawRepresentable"
 - !private "Ps12SequenceType"
 - !private "Ps17SignedIntegerType"
 - !private "Ps16SignedNumberType"
@@ -602,6 +650,7 @@ depends-nominal:
 - !private "PSo29UIAccessibilityIdentification"
 - !private "PSo12UIAppearance"
 - "PSo21UIAppearanceContainer"
+- !private "PSo24UIBarPositioningDelegate"
 - !private "CSo8UIButton"
 - "PSo18UIContentContainer"
 - !private "CSo9UIControl"
@@ -611,8 +660,10 @@ depends-nominal:
 - !private "CSo7UILabel"
 - "CSo11UIResponder"
 - !private "PSo20UIScrollViewDelegate"
+- !private "PSo19UISearchBarDelegate"
 - !private "PSo23UISearchResultsUpdating"
 - "PSo16UIStateRestoring"
+- !private "OSC16UIStatusBarStyle"
 - !private "CSo17UIStoryboardSegue"
 - !private "CSo18UITabBarController"
 - !private "PSo16UITabBarDelegate"
@@ -648,4 +699,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "a98cc6eabb31296ce1c916b760d38e37"
+interface-hash: "6709d4e8d8d368e3cfa349a6b7b1c41c"

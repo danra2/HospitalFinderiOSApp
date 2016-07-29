@@ -8,9 +8,9 @@ provides-member:
 provides-dynamic-lookup:
 - "filterModel"
 depends-top-level:
-- "MainTabController"
 - "FilterModel"
 - "UITabBarController"
+- "MainTabController"
 depends-member:
 - ["Ps9AnyObject", "FilterModel"]
 - ["Ps9AnyObject", "filterModel"]

@@ -314,6 +314,9 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destination = segue.destinationViewController as! DetailViewController
+        if searchController.active && searchController.searchBar.text != "" {
+            destination.receivedHospital = textfilteredHospitals[sender as! Int]
+        }
         destination.receivedHospital = filteredHospitals[sender as! Int]
     }
     ///////////////////

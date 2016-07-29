@@ -13,20 +13,20 @@ provides-member:
 - ["C14HospitalFinder8Bookmark", "rating"]
 - ["C14HospitalFinder8Bookmark", "website"]
 provides-dynamic-lookup:
-- "website"
+- "location"
+- "phoneNumber"
+- "date"
+- "bookmarked"
 - "imageUrl"
 - "rating"
-- "phoneNumber"
+- "website"
 - "id"
 - "name"
-- "date"
-- "location"
-- "bookmarked"
 depends-top-level:
-- "String"
 - "NSNumber"
-- "Bookmark"
 - "NSDate"
+- "String"
+- "Bookmark"
 depends-member:
 - ["Ps9AnyObject", "bookmarked"]
 - ["Ps9AnyObject", "date"]

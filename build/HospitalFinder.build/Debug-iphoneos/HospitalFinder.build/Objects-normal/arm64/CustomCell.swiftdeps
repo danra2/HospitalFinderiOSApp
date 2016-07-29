@@ -7,22 +7,22 @@ provides-member:
 - ["C14HospitalFinder10CustomCell", ""]
 provides-dynamic-lookup:
 - "websiteButton"
-- "locationLabel"
 - "bookmarkButton"
-- "phoneButtonLabel"
-- "ratingLabel"
-- "nameLabel"
+- "locationLabel"
 - "indexPath"
+- "phoneButtonLabel"
 - "hospitialImageView"
+- "nameLabel"
+- "ratingLabel"
 depends-top-level:
-- "NSIndexPath"
-- "CustomCell"
 - "UITableViewCell"
-- "UIButton"
-- "Int"
-- "BookmarkButtonDelegate"
-- "UILabel"
 - "UIImageView"
+- "NSIndexPath"
+- "UILabel"
+- "BookmarkButtonDelegate"
+- "Int"
+- "UIButton"
+- "CustomCell"
 depends-member:
 - ["Ps9AnyObject", "bookmarkButton"]
 - ["Ps9AnyObject", "delegate"]

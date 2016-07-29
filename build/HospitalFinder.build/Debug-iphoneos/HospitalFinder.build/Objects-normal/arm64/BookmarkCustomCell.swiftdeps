@@ -6,19 +6,19 @@ provides-nominal:
 provides-member:
 - ["C14HospitalFinder18BookmarkCustomCell", ""]
 provides-dynamic-lookup:
-- "bookmarkImageView"
-- "indexPath"
-- "bookmarkPhoneButton"
 - "bookmarkLocationLabel"
-- "bookmarkNameLabel"
 - "bookmarkWebsiteButton"
+- "bookmarkImageView"
+- "bookmarkPhoneButton"
+- "bookmarkNameLabel"
+- "indexPath"
 depends-top-level:
-- "UILabel"
-- "UIImageView"
-- "BookmarkCustomCell"
-- "UITableViewCell"
 - "UIButton"
+- "UITableViewCell"
 - "NSIndexPath"
+- "UILabel"
+- "BookmarkCustomCell"
+- "UIImageView"
 depends-member:
 - ["Ps9AnyObject", "bookmarkImageView"]
 - ["Ps9AnyObject", "bookmarkLocationLabel"]

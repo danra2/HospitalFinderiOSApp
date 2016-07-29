@@ -3,25 +3,29 @@ provides-top-level:
 - "LocationManager"
 provides-nominal:
 - "C14HospitalFinder15LocationManager"
+- "OC14HospitalFinder15LocationManager20LocationManagerError"
 provides-member:
 - ["C14HospitalFinder15LocationManager", ""]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", ""]
 provides-dynamic-lookup:
-- "locationManager"
-- "locationManager"
-- "locationManager"
 - "getlocationForUser"
+- "locationManager"
+- "locationManager"
+- "locationManager"
 depends-top-level:
-- "CLAuthorizationStatus"
-- "LocationManager"
-- !private "=="
-- "CLLocationManagerDelegate"
 - "NSObject"
-- "CLLocation"
-- !private "||"
-- "CLLocationManager"
+- "CLLocationManagerDelegate"
 - !private "Array"
+- "ErrorType"
+- "=="
+- !private "||"
+- "LocationManager"
+- "CLLocationManager"
+- "CLLocation"
+- "CLAuthorizationStatus"
 depends-member:
 - !private ["Ps9AnyObject", "CLLocationManager"]
+- !private ["Ps9AnyObject", "LocationManagerError"]
 - !private ["Ps9AnyObject", "authorizationStatus"]
 - !private ["Ps9AnyObject", "delegate"]
 - ["Ps9AnyObject", "getlocationForUser"]
@@ -54,8 +58,10 @@ depends-member:
 - !private ["Vs10ArraySlice", "Index"]
 - !private ["Ps22BidirectionalIndexType", "Distance"]
 - !private ["Ps22BidirectionalIndexType", "IntegerLiteralType"]
+- !private ["Ps22BidirectionalIndexType", "hashValue"]
 - !private ["Ps21BitwiseOperationsType", "Distance"]
 - !private ["Ps21BitwiseOperationsType", "IntegerLiteralType"]
+- !private ["Ps21BitwiseOperationsType", "hashValue"]
 - !private ["Sb", "_getBuiltinLogicValue"]
 - !private ["Ps25BooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps11BooleanType", "_getBuiltinLogicValue"]
@@ -73,6 +79,7 @@ depends-member:
 - !private ["CSo17CLLocationManager", "requestWhenInUseAuthorization"]
 - !private ["CSo17CLLocationManager", "startUpdatingLocation"]
 - !private ["PSo25CLLocationManagerDelegate", "CLLocationManager"]
+- !private ["PSo25CLLocationManagerDelegate", "LocationManagerError"]
 - ["PSo25CLLocationManagerDelegate", "locationManager"]
 - !private ["PSo25CLLocationManagerDelegate", "locationManagerClosures"]
 - ["PSo25CLLocationManagerDelegate", "locationManagerDidPauseLocationUpdates"]
@@ -82,9 +89,11 @@ depends-member:
 - !private ["Ps11CVarArgType", "CLLocationManager"]
 - !private ["Ps11CVarArgType", "Distance"]
 - !private ["Ps11CVarArgType", "IntegerLiteralType"]
+- !private ["Ps11CVarArgType", "LocationManagerError"]
 - !private ["Ps11CVarArgType", "authorizationStatus"]
 - !private ["Ps11CVarArgType", "delegate"]
 - ["Ps11CVarArgType", "getlocationForUser"]
+- !private ["Ps11CVarArgType", "hashValue"]
 - ["Ps11CVarArgType", "init"]
 - ["Ps11CVarArgType", "locationManager"]
 - ["Ps11CVarArgType", "locationManagerClosures"]
@@ -104,10 +113,12 @@ depends-member:
 - !private ["Ps14CollectionType", "map"]
 - !private ["Ps10Comparable", "Distance"]
 - !private ["Ps10Comparable", "IntegerLiteralType"]
+- !private ["Ps10Comparable", "hashValue"]
 - !private ["Ps28CustomDebugStringConvertible", "CLLocationManager"]
 - !private ["Ps28CustomDebugStringConvertible", "Element"]
 - !private ["Ps28CustomDebugStringConvertible", "Generator"]
 - !private ["Ps28CustomDebugStringConvertible", "Index"]
+- !private ["Ps28CustomDebugStringConvertible", "LocationManagerError"]
 - !private ["Ps28CustomDebugStringConvertible", "SubSequence"]
 - !private ["Ps28CustomDebugStringConvertible", "_Element"]
 - !private ["Ps28CustomDebugStringConvertible", "append"]
@@ -131,6 +142,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "Generator"]
 - !private ["Ps23CustomStringConvertible", "Index"]
 - !private ["Ps23CustomStringConvertible", "IntegerLiteralType"]
+- !private ["Ps23CustomStringConvertible", "LocationManagerError"]
 - !private ["Ps23CustomStringConvertible", "SubSequence"]
 - !private ["Ps23CustomStringConvertible", "_Element"]
 - !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
@@ -138,6 +150,7 @@ depends-member:
 - !private ["Ps23CustomStringConvertible", "authorizationStatus"]
 - !private ["Ps23CustomStringConvertible", "delegate"]
 - ["Ps23CustomStringConvertible", "getlocationForUser"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
 - ["Ps23CustomStringConvertible", "init"]
 - ["Ps23CustomStringConvertible", "locationManager"]
 - ["Ps23CustomStringConvertible", "locationManagerClosures"]
@@ -153,15 +166,21 @@ depends-member:
 - !private ["Ps9Equatable", "AuthorizedWhenInUse"]
 - !private ["Ps9Equatable", "CLLocationManager"]
 - !private ["Ps9Equatable", "Denied"]
+- !private ["Ps9Equatable", "DeniedError"]
 - !private ["Ps9Equatable", "Distance"]
 - !private ["Ps9Equatable", "IntegerLiteralType"]
+- !private ["Ps9Equatable", "LocationManagerError"]
+- !private ["Ps9Equatable", "NoLocationServiceError"]
 - !private ["Ps9Equatable", "NotDetermined"]
 - !private ["Ps9Equatable", "RawValue"]
 - !private ["Ps9Equatable", "Restricted"]
+- ["Ps9Equatable", "_code"]
+- ["Ps9Equatable", "_domain"]
 - !private ["Ps9Equatable", "_getBuiltinLogicValue"]
 - !private ["Ps9Equatable", "authorizationStatus"]
 - !private ["Ps9Equatable", "delegate"]
 - ["Ps9Equatable", "getlocationForUser"]
+- ["Ps9Equatable", "hashValue"]
 - ["Ps9Equatable", "init"]
 - ["Ps9Equatable", "locationManager"]
 - ["Ps9Equatable", "locationManagerClosures"]
@@ -172,22 +191,35 @@ depends-member:
 - !private ["Ps9Equatable", "requestWhenInUseAuthorization"]
 - !private ["Ps9Equatable", "startUpdatingLocation"]
 - ["Ps9Equatable", ""]
+- !private ["Ps9ErrorType", "DeniedError"]
+- !private ["Ps9ErrorType", "NoLocationServiceError"]
+- ["Ps9ErrorType", "_code"]
+- ["Ps9ErrorType", "_domain"]
+- ["Ps9ErrorType", "hashValue"]
+- ["Ps9ErrorType", ""]
 - !private ["Ps16ForwardIndexType", "Distance"]
 - !private ["Ps16ForwardIndexType", "IntegerLiteralType"]
+- !private ["Ps16ForwardIndexType", "hashValue"]
 - !private ["Ps13GeneratorType", "Element"]
 - !private ["Ps8Hashable", "AuthorizedAlways"]
 - !private ["Ps8Hashable", "AuthorizedWhenInUse"]
 - !private ["Ps8Hashable", "CLLocationManager"]
 - !private ["Ps8Hashable", "Denied"]
+- !private ["Ps8Hashable", "DeniedError"]
 - !private ["Ps8Hashable", "Distance"]
 - !private ["Ps8Hashable", "IntegerLiteralType"]
+- !private ["Ps8Hashable", "LocationManagerError"]
+- !private ["Ps8Hashable", "NoLocationServiceError"]
 - !private ["Ps8Hashable", "NotDetermined"]
 - !private ["Ps8Hashable", "RawValue"]
 - !private ["Ps8Hashable", "Restricted"]
+- ["Ps8Hashable", "_code"]
+- ["Ps8Hashable", "_domain"]
 - !private ["Ps8Hashable", "_getBuiltinLogicValue"]
 - !private ["Ps8Hashable", "authorizationStatus"]
 - !private ["Ps8Hashable", "delegate"]
 - ["Ps8Hashable", "getlocationForUser"]
+- ["Ps8Hashable", "hashValue"]
 - ["Ps8Hashable", "init"]
 - ["Ps8Hashable", "locationManager"]
 - ["Ps8Hashable", "locationManagerClosures"]
@@ -208,15 +240,21 @@ depends-member:
 - !private ["Vs17IndexingGenerator", "Element"]
 - !private ["Si", "Distance"]
 - !private ["Si", "IntegerLiteralType"]
+- !private ["Si", "hashValue"]
 - !private ["Ps21IntegerArithmeticType", "Distance"]
 - !private ["Ps21IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps21IntegerArithmeticType", "hashValue"]
 - !private ["Ps25IntegerLiteralConvertible", "Distance"]
 - !private ["Ps25IntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps25IntegerLiteralConvertible", "hashValue"]
 - !private ["Ps11IntegerType", "Distance"]
 - !private ["Ps11IntegerType", "IntegerLiteralType"]
+- !private ["Ps11IntegerType", "hashValue"]
 - ["C14HospitalFinder15LocationManager", "CLAuthorizationStatus"]
 - ["C14HospitalFinder15LocationManager", "CLLocation"]
 - ["C14HospitalFinder15LocationManager", "CLLocationManager"]
+- ["C14HospitalFinder15LocationManager", "ErrorType"]
+- ["C14HospitalFinder15LocationManager", "LocationManagerError"]
 - ["C14HospitalFinder15LocationManager", "deinit"]
 - ["C14HospitalFinder15LocationManager", "getlocationForUser"]
 - ["C14HospitalFinder15LocationManager", "init"]
@@ -225,8 +263,15 @@ depends-member:
 - ["C14HospitalFinder15LocationManager", "locationManagerDidPauseLocationUpdates"]
 - ["C14HospitalFinder15LocationManager", "locationManagerDidResumeLocationUpdates"]
 - ["C14HospitalFinder15LocationManager", "locationManagerShouldDisplayHeadingCalibration"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "DeniedError"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "NoLocationServiceError"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "_code"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "_domain"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "deinit"]
+- ["OC14HospitalFinder15LocationManager20LocationManagerError", "hashValue"]
 - !private ["Ps14MirrorPathType", "Distance"]
 - !private ["Ps14MirrorPathType", "IntegerLiteralType"]
+- !private ["Ps14MirrorPathType", "hashValue"]
 - !private ["Ps21MutableCollectionType", "Element"]
 - !private ["Ps21MutableCollectionType", "Generator"]
 - !private ["Ps21MutableCollectionType", "Index"]
@@ -251,6 +296,8 @@ depends-member:
 - ["CSo8NSObject", "CLAuthorizationStatus"]
 - ["CSo8NSObject", "CLLocation"]
 - ["CSo8NSObject", "CLLocationManager"]
+- ["CSo8NSObject", "ErrorType"]
+- !private ["CSo8NSObject", "LocationManagerError"]
 - !private ["CSo8NSObject", "authorizationStatus"]
 - !private ["CSo8NSObject", "delegate"]
 - ["CSo8NSObject", "getlocationForUser"]
@@ -265,6 +312,7 @@ depends-member:
 - !private ["CSo8NSObject", "startUpdatingLocation"]
 - ["CSo8NSObject", ""]
 - !private ["PSo16NSObjectProtocol", "CLLocationManager"]
+- !private ["PSo16NSObjectProtocol", "LocationManagerError"]
 - !private ["PSo16NSObjectProtocol", "authorizationStatus"]
 - !private ["PSo16NSObjectProtocol", "delegate"]
 - ["PSo16NSObjectProtocol", "getlocationForUser"]
@@ -280,6 +328,7 @@ depends-member:
 - ["PSo16NSObjectProtocol", ""]
 - !private ["Ps21RandomAccessIndexType", "Distance"]
 - !private ["Ps21RandomAccessIndexType", "IntegerLiteralType"]
+- !private ["Ps21RandomAccessIndexType", "hashValue"]
 - !private ["Ps30RangeReplaceableCollectionType", "Element"]
 - !private ["Ps30RangeReplaceableCollectionType", "Generator"]
 - !private ["Ps30RangeReplaceableCollectionType", "Index"]
@@ -302,10 +351,13 @@ depends-member:
 - !private ["Ps12SequenceType", "map"]
 - !private ["Ps17SignedIntegerType", "Distance"]
 - !private ["Ps17SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps17SignedIntegerType", "hashValue"]
 - !private ["Ps16SignedNumberType", "Distance"]
 - !private ["Ps16SignedNumberType", "IntegerLiteralType"]
+- !private ["Ps16SignedNumberType", "hashValue"]
 - !private ["Ps10Strideable", "Distance"]
 - !private ["Ps10Strideable", "IntegerLiteralType"]
+- !private ["Ps10Strideable", "hashValue"]
 - !private ["Ps10_ArrayType", "Element"]
 - !private ["Ps10_ArrayType", "Generator"]
 - !private ["Ps10_ArrayType", "Index"]
@@ -316,6 +368,7 @@ depends-member:
 - !private ["Ps33_BuiltinBooleanLiteralConvertible", "_getBuiltinLogicValue"]
 - !private ["Ps33_BuiltinIntegerLiteralConvertible", "Distance"]
 - !private ["Ps33_BuiltinIntegerLiteralConvertible", "IntegerLiteralType"]
+- !private ["Ps33_BuiltinIntegerLiteralConvertible", "hashValue"]
 - !private ["Ps24_DestructorSafeContainer", "Element"]
 - !private ["Ps24_DestructorSafeContainer", "Generator"]
 - !private ["Ps24_DestructorSafeContainer", "Index"]
@@ -325,10 +378,13 @@ depends-member:
 - !private ["Ps24_DestructorSafeContainer", "map"]
 - !private ["Ps14_Incrementable", "Distance"]
 - !private ["Ps14_Incrementable", "IntegerLiteralType"]
+- !private ["Ps14_Incrementable", "hashValue"]
 - !private ["Ps22_IntegerArithmeticType", "Distance"]
 - !private ["Ps22_IntegerArithmeticType", "IntegerLiteralType"]
+- !private ["Ps22_IntegerArithmeticType", "hashValue"]
 - !private ["Ps12_IntegerType", "Distance"]
 - !private ["Ps12_IntegerType", "IntegerLiteralType"]
+- !private ["Ps12_IntegerType", "hashValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "Distance"]
 - !private ["Ps21_ObjectiveCBridgeable", "Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "Generator"]
@@ -338,9 +394,11 @@ depends-member:
 - !private ["Ps21_ObjectiveCBridgeable", "_Element"]
 - !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "append"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
 - !private ["Ps21_ObjectiveCBridgeable", "map"]
 - !private ["Ps22_RandomAccessAmbiguity", "Distance"]
 - !private ["Ps22_RandomAccessAmbiguity", "IntegerLiteralType"]
+- !private ["Ps22_RandomAccessAmbiguity", "hashValue"]
 - !private ["Ps12_Reflectable", "Distance"]
 - !private ["Ps12_Reflectable", "Element"]
 - !private ["Ps12_Reflectable", "Generator"]
@@ -350,9 +408,11 @@ depends-member:
 - !private ["Ps12_Reflectable", "_Element"]
 - !private ["Ps12_Reflectable", "_getBuiltinLogicValue"]
 - !private ["Ps12_Reflectable", "append"]
+- !private ["Ps12_Reflectable", "hashValue"]
 - !private ["Ps12_Reflectable", "map"]
 - !private ["Ps18_SignedIntegerType", "Distance"]
 - !private ["Ps18_SignedIntegerType", "IntegerLiteralType"]
+- !private ["Ps18_SignedIntegerType", "hashValue"]
 depends-nominal:
 - "Ps9AnyObject"
 - !private "Sa"
@@ -372,6 +432,7 @@ depends-nominal:
 - "Ps28CustomDebugStringConvertible"
 - "Ps23CustomStringConvertible"
 - "Ps9Equatable"
+- "Ps9ErrorType"
 - !private "Ps16ForwardIndexType"
 - !private "Ps13GeneratorType"
 - "Ps8Hashable"
@@ -382,6 +443,7 @@ depends-nominal:
 - !private "Ps25IntegerLiteralConvertible"
 - !private "Ps11IntegerType"
 - "C14HospitalFinder15LocationManager"
+- "OC14HospitalFinder15LocationManager20LocationManagerError"
 - !private "Ps14MirrorPathType"
 - !private "Ps21MutableCollectionType"
 - !private "Ps16MutableIndexable"
@@ -420,4 +482,4 @@ depends-external:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/GLKit.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/simd.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
-interface-hash: "215ac92bb300138026117170d174bd34"
+interface-hash: "68ea0302695ba807e7546ffa1db598df"
