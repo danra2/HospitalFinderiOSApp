@@ -95,7 +95,6 @@ typedef int swift_int4  __attribute__((__ext_vector_type__(4)));
 @import UIKit;
 @import ObjectiveC;
 @import CoreLocation;
-@import MapKit;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
@@ -148,7 +147,6 @@ SWIFT_CLASS("_TtC14HospitalFinder24ChooseCityViewController")
 @property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified cityNameLabel;
 @property (nonatomic, weak) IBOutlet UIButton * _Null_unspecified goButton;
 - (void)viewDidLoad;
-- (UIStatusBarStyle)preferredStatusBarStyle;
 - (void)didReceiveMemoryWarning;
 - (void)prepareForSegue:(UIStoryboardSegue * _Nonnull)segue sender:(id _Null_unspecified)sender;
 - (IBAction)bellevueButtonPressed:(UIButton * _Nonnull)sender;
@@ -206,14 +204,11 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @property (nonatomic, copy) NSString * _Nonnull name;
 @property (nonatomic) NSInteger id;
 @property (nonatomic, copy) NSString * _Nonnull location;
-@property (nonatomic) double latitude;
-@property (nonatomic) double longitude;
 @property (nonatomic, copy) NSString * _Nonnull phoneNumber;
 @property (nonatomic, copy) NSString * _Nonnull website;
 @property (nonatomic) float rating;
 @property (nonatomic, copy) NSString * _Nullable imageUrl;
 @property (nonatomic, strong) UIImage * _Nullable image;
-@property (nonatomic) CLLocationDistance distanceFromUser;
 + (void)getAllHospitals:(void (^ _Nonnull)(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
@@ -223,10 +218,9 @@ SWIFT_CLASS("_TtC14HospitalFinder8Hospital")
 @class CLLocation;
 @class UITableView;
 @class NSIndexPath;
-@class UISearchBar;
 
 SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
-@interface ListViewController : UITableViewController <UIBarPositioningDelegate, UISearchBarDelegate, UISearchResultsUpdating>
+@interface ListViewController : UITableViewController <UISearchResultsUpdating>
 @property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
 @property (nonatomic, copy) NSString * _Nullable toPass;
 @property (nonatomic, strong) FilterModel * _Nonnull filterModel;
@@ -236,15 +230,12 @@ SWIFT_CLASS("_TtC14HospitalFinder18ListViewController")
 @property (nonatomic, strong) LocationManager * _Nullable locationManager;
 @property (nonatomic, strong) CLLocation * _Nullable userLocation;
 - (void)viewDidLoad;
-- (UIStatusBarStyle)preferredStatusBarStyle;
 - (void)viewWillAppear:(BOOL)animated;
 - (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section;
 - (void)getAllHospitals;
 - (void)filterContentForSearchText:(NSString * _Nonnull)searchText scope:(NSString * _Nonnull)scope;
 - (void)updateSearchResultsForSearchController:(UISearchController * _Nonnull)searchController;
-- (void)searchBar:(UISearchBar * _Nonnull)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope;
-- (void)sortContent:(NSString * _Nonnull)scope;
 - (NSArray<Hospital *> * _Nonnull)applyFilterModel:(FilterModel * _Nonnull)model hospitals:(NSArray<Hospital *> * _Nonnull)hospitals;
 - (IBAction)websiteButtonPressed:(UIButton * _Nonnull)sender;
 - (IBAction)phoneButtonPressed:(UIButton * _Nonnull)sender;
@@ -259,35 +250,16 @@ SWIFT_CLASS("_TtC14HospitalFinder15LocationManager")
 @interface LocationManager : NSObject <CLLocationManagerDelegate>
 @property (nonatomic, strong) CLLocationManager * _Nonnull locationManager;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-- (BOOL)getlocationForUserAndReturnError:(NSError * _Nullable * _Null_unspecified)error :(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
+- (void)getlocationForUser:(void (^ _Nonnull)(CLLocation * _Nonnull userLocation))userLocationClosure;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateToLocation:(CLLocation * _Nonnull)newLocation fromLocation:(CLLocation * _Nonnull)oldLocation;
 - (void)locationManager:(CLLocationManager * _Nonnull)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status;
 @end
 
-@class MKMapView;
-@class MKAnnotationView;
 
 SWIFT_CLASS("_TtC14HospitalFinder22LocationViewController")
-@interface LocationViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
-@property (nonatomic, strong) CLLocationManager * _Null_unspecified locationManager;
-@property (nonatomic, weak) IBOutlet MKMapView * _Null_unspecified mapView;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified nameLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hoursTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified hoursDescriptionLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionTitleLabel;
-@property (nonatomic, weak) IBOutlet UILabel * _Null_unspecified descriptionLabel;
-@property (nonatomic, copy) NSArray<Hospital *> * _Nonnull hospitals;
+@interface LocationViewController : UIViewController
 - (void)viewDidLoad;
-- (void)fullScreenMap;
-- (void)mapView:(MKMapView * _Nonnull)mapView didSelectAnnotationView:(MKAnnotationView * _Nonnull)view;
-- (void)mapView:(MKMapView * _Nonnull)mapView didDeselectAnnotationView:(MKAnnotationView * _Nonnull)view;
-- (void)direction;
 - (void)didReceiveMemoryWarning;
-- (IBAction)directionButton:(UIButton * _Nonnull)sender;
-- (void)locationManager:(CLLocationManager * _Nonnull)manager didUpdateLocations:(NSArray<CLLocation *> * _Nonnull)locations;
-- (void)displayAnnotations:(Hospital * _Nonnull)hospital;
-- (void)zoomToRegion:(double)lat long:(double)long_;
-- (void)getAllHospitals;
 - (nonnull instancetype)initWithNibName:(NSString * _Nullable)nibNameOrNil bundle:(NSBundle * _Nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end

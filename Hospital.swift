@@ -15,12 +15,17 @@ import CoreLocation
 class Hospital: NSObject {
     
     var name: String = ""
-    var id = Int()    
+    var id = Int()
     var location = ""
     var latitude = 0.00 // Yung's code
     var longitude = 0.00 // Yung's code
+    var startTime = "" // Yung's code
+    var endTime = "" // Yung's code
+    var consultingFee = 0.00
     var phoneNumber = ""
     var website = ""
+    var insurance = [] // Yung's code
+    var descript = "" // Yung's code
     var rating:Float = 0.00
     var imageUrl:String?
     var image:UIImage?

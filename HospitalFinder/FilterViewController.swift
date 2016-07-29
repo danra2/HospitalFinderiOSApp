@@ -10,13 +10,13 @@
 import UIKit
 import CoreLocation
 
-class FilterViewController: UIViewController {
+class FilterViewController: UITableViewController {
     
     @IBOutlet weak var consultingFeeSlider: UISlider!
     @IBOutlet weak var distanceSlider: UISlider!
     @IBOutlet weak var ratingSlider: UISlider!
     
-
+    
     
     
     
@@ -24,17 +24,27 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a
+        tableView.separatorColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
         distanceSlider.minimumValue = 0
-        distanceSlider.maximumValue = 10
+        distanceSlider.maximumValue = 20
         ratingSlider.minimumValue = 0
         ratingSlider.maximumValue = 5
+        consultingFeeSlider.minimumValue = 0
+        consultingFeeSlider.maximumValue = 250
+        
+        
 
         
     }
     
     
     override func viewWillAppear(animated: Bool) {
+        
 
+    }
+    @IBAction func consultingFeeChanged(sender: UISlider) {
+        let tbvc = self.tabBarController as! MainTabController
+        tbvc.filterModel.consultingFee = Double(consultingFeeSlider.value)
     }
    
     @IBAction func ratingSliderChanged(sender: UISlider) {
@@ -51,6 +61,7 @@ class FilterViewController: UIViewController {
        
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
