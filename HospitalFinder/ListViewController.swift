@@ -110,9 +110,9 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchController.active && searchController.searchBar.text != "" {
-            return textfilteredHospitals.count
+            return textfilteredHospitals.count/2
         }
-        return filteredHospitals.count
+        return filteredHospitals.count/2
     }
     
     
@@ -203,6 +203,7 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
+        textfilteredHospitals = []
         textfilteredHospitals = filteredHospitals.filter { hospital in
             return hospital.name.lowercaseString.containsString(searchText.lowercaseString)
         }
@@ -270,13 +271,29 @@ class ListViewController: UITableViewController,UISearchResultsUpdating,UISearch
     
     
     @IBAction func websiteButtonPressed(sender: UIButton) {
-        let urlFromButton = sender.currentTitle!
+        let urlFromButton = "http://" + sender.currentTitle!
         UIApplication.sharedApplication().openURL(NSURL(string: urlFromButton)!)
         
     }
     @IBAction func phoneButtonPressed(sender: UIButton) {
+        var editedPhoneNumber = ""
         let numberFromButton = sender.currentTitle!
-        UIApplication.sharedApplication().openURL(NSURL(string: numberFromButton)!)
+        
+        for i in numberFromButton.characters {
+            
+            switch (i){
+            case "0","1","2","3","4","5","6","7","8","9" : editedPhoneNumber = editedPhoneNumber + String(i)
+            default : print("Removed invalid character.")
+            }
+        }
+        
+        let phone = "tel://" + editedPhoneNumber
+        let url = NSURL(string: phone)
+        if let url = url {
+            UIApplication.sharedApplication().openURL(url)
+        } else {
+            print("error")
+        }
     }
     func bookmarkWasPressed(cell: CustomCell, atIndexPath indexPath: NSIndexPath) {
         fetchingDB()

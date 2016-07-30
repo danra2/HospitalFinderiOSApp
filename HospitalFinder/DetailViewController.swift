@@ -20,7 +20,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var phoneButton: UIButton!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+    @IBOutlet weak var operationsLabel: UILabel!
     @IBOutlet weak var insuranceLabel: UILabel!
 
     var receivedHospital: Hospital?
@@ -58,10 +58,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
         
         if let myImage = receivedHospital?.image {
             imageView.image = myImage
+//            operationsLabel.attributedText.
             nameLabel.text = receivedHospital?.name
             websiteButton.setTitle(receivedHospital?.website, forState: .Normal)
             phoneButton.setTitle(receivedHospital?.phoneNumber, forState: .Normal)
-//            descriptionLabel.text = receivedHospital?.descript
+            descriptionLabel.text = receivedHospital?.descript
             if receivedHospital!.startTime == "00:00" {
                 hoursLabel.text = "24 hours"
             } else {
@@ -120,13 +121,29 @@ class DetailViewController: UIViewController, MKMapViewDelegate {
     }
     
     @IBAction func websiteButtonPressed(sender: UIButton) {
-        let urlFromButton = sender.currentTitle!
+        let urlFromButton = "http://" + sender.currentTitle!
         UIApplication.sharedApplication().openURL(NSURL(string: urlFromButton)!)
     }
     
     @IBAction func phoneButtonPressed(sender: UIButton) {
-//        let phoneNumberFromButton = sender.currentTitle!
-//        UIApplication.sharedApplication().openURL(NSURL(string: phoneNumberFromButton)!)
+        var editedPhoneNumber = ""
+        let numberFromButton = sender.currentTitle!
+        
+        for i in numberFromButton.characters {
+            
+            switch (i){
+            case "0","1","2","3","4","5","6","7","8","9" : editedPhoneNumber = editedPhoneNumber + String(i)
+            default : print("Removed invalid character.")
+            }
+        }
+        
+        let phone = "tel://" + editedPhoneNumber
+        let url = NSURL(string: phone)
+        if let url = url {
+            UIApplication.sharedApplication().openURL(url)
+        } else {
+            print("error")
+        }
     }
     
     

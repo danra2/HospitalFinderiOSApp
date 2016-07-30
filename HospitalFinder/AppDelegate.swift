@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
         navigationBarAppearace.tintColor = UIColor(red:0.05, green:0.11, blue:0.19, alpha:1.0)
         navigationBarAppearace.barTintColor = UIColor(red:0.05, green:0.11, blue:0.19, alpha:1.0)
+        UISearchBar.appearance().tintColor = UIColor(red:0.13, green:0.17, blue:0.24, alpha:1.0)
         return true
     }
 
